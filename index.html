@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://koenromers.com/cocoen/demo.html -->
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Naucna studija: HDR</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/cocoen.min.css">
+	<style>
+		body {
+			font-family: sans-serif;
+			font-size: 16px;
+			margin: 2rem;
+			text-align: center;
+		}
+
+		.container {
+			position: relative;
+			margin: auto;
+			max-width: 1200px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav class="navbar sticky-top navbar-light bg-light">
+		<a class="navbar-brand" href="#">
+			<img src="/img/etfbl.png" width="60" height="60" class="d-inline-block align-top" alt="">
+		</a>
+		<p style="font-size: 36px;">Inverzno tonsko mapiranje slika</p>
+		<span class="navbar-text" style="text-align: left">
+			<p class="mb-1">Kandidat: Debeljak Savo</p>
+			<p class="mb-1">Mentor: Vladimir Risojevic</p>
+			<p class="mb-1">Član komisije: Vladan Stojnić</p>
+		</span>
+	</nav>
+
+	<h1 style="text-align: center" class="m-5">Korištene slike - LDR format</h1>
+
+	<div id="carousel" class="carousel slide container" data-ride="carousel">
+		<ol class="carousel-indicators" id="carousel-indicators-ldr">
+			<li data-target="#carousel" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel" data-slide-to="1"></li>
+			<li data-target="#carousel" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img class="d-block w-100" src="/images/mini_before.jpg" alt="First slide">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>...</h5>
+					<p>...</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100" src="/images/mini_after.jpg" alt="Second slide">
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100" src="/images/mini_before.jpg" alt="Third slide">
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+
+	<div class="container">
+		<h1 class="m-5">Slike</h1>
+		<div class="cocoen">
+			<div style="width: 50%;">
+				<img src="/images/buba_before.jpg" alt="" style="width: 700px;">
+			</div>
+			<img src="/images/buba_after.jpg" alt="">
+		</div>
+	</div>
+
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			new Cocoen();
+		});
+	</script>
+
+</body>
+
+<footer>
+	<script src="/js/cocoen.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="/js/hdrpng.min.js"></script>
+	<script>
+		$(document).ready(() => {
+			jQuery.get({
+				url: '/images',
+				success: (result) => {
+					console.log(result);
+
+					ldrImages = result.filter(image => image.includes('before')); // ldr
+
+					console.log(ldrImages);
+
+				},
+				error: (result) => {
+					console.error(result);
+				}
+			});
+
+			var myHDR = new HDRImage();
+			myHDR.src = '/images/test.hdr';
+			myHDR.gamma = 1;
+			// myHDR.saturation = 0;
+			console.log(myHDR.gamma);
+			document.body.appendChild(myHDR);
+		});
+	</script>
+</footer>
+
+</html>
