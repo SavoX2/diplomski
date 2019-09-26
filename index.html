@@ -74,27 +74,24 @@
 		</a>
 	</div>
 
-	<div class="container">
+	<div >
 		<h1 class="m-5">Slike</h1>
-		<div class="cocoen">
-			<div style="width: 50%;">
-				<img src="/images/buba_before.jpg" alt="" style="width: 700px;">
+		<div class="cocoen" id="container">
+			<div id="temp">
+				<!-- <img src="/images/buba_before.jpg" alt="" style="width: 700px;"> -->
 			</div>
-			<img src="/images/buba_after.jpg" alt="">
+			<!-- <img src="/images/buba_after.jpg" alt=""> -->
 		</div>
 	</div>
 
-
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			new Cocoen();
-		});
-	</script>
+	<br>
+	<br><br><br>
 
 </body>
 
 <footer>
-	<script src="/js/cocoen.min.js"></script>
+	<!-- <script src="/js/cocoen.min.js"></script> -->
+	<script src="/js/custom/temp.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -123,13 +120,39 @@
 				}
 			});
 
+			
+
 			var myHDR = new HDRImage();
 			myHDR.src = '/images/test.hdr';
-			myHDR.gamma = 1;
-			// myHDR.saturation = 0;
-			console.log(myHDR.gamma);
-			document.body.appendChild(myHDR);
+			myHDR.id = 'prva';
+			var myHDR2 = new HDRImage();
+			myHDR2.src = '/images/test2.hdr';
+			myHDR2.id = 'druga';
+
+			// document.getElementById('temp').appendChild(myHDR);
+			// document.body.appendChild(myHDR2);
+			$("#temp").append(myHDR);
+			$("#container").append(myHDR2);
+
+			var myHDR3 = new HDRImage();
+			myHDR3.src = '/images/test.hdr';
+			myHDR3.id = 'treca';
+			document.body.appendChild(myHDR3);
+
+			// setTimeout(() => {}, 5000);
+
+			// var destCanvas = document.createElement('canvas');
+			// destCanvas.width = myHDR.width;
+			// destCanvas.height = myHDR.height;
+			// var destCtx = destCanvas.getContext('2d');
+			// destCtx.drawImage(myHDR, 0, 0);
+			// document.body.appendChild(myHDR3);
+			new Cocoen();
 		});
+
+		// document.addEventListener('DOMContentLoaded', function () {
+		// 	new Cocoen();
+		// });
 	</script>
 </footer>
 
