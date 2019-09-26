@@ -50,8 +50,8 @@ class Cocoen {
       this.elementOffsetLeft = this.element.getBoundingClientRect().left + document.body.scrollLeft;
       this.beforeImage.style.width = `${this.elementWidth}`;
       this.dragElementWidth = parseInt(window.getComputedStyle(this.dragElement).width, 10);
-      this.minLeftPos = this.elementOffsetLeft + 10;
-      this.maxLeftPos = (this.elementOffsetLeft + this.elementWidth) - this.dragElementWidth - 10;
+      this.minLeftPos = this.elementOffsetLeft;
+      this.maxLeftPos = (this.elementOffsetLeft + this.elementWidth) - this.dragElementWidth;
     }
   
     onTap(e) {

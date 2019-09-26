@@ -21,7 +21,8 @@
 		.container {
 			position: relative;
 			margin: auto;
-			max-width: 1200px;
+			max-width: 2145px !important;
+			/* velicina odabrana zbog velicina slika u dataset-u, promijeniti u skladu sa buduce koristenim datasetom */
 			text-align: center;
 		}
 	</style>
@@ -36,7 +37,7 @@
 		<p style="font-size: 36px;">Inverzno tonsko mapiranje slika</p>
 		<span class="navbar-text" style="text-align: left">
 			<p class="mb-1">Kandidat: Debeljak Savo</p>
-			<p class="mb-1">Mentor: Vladimir Risojevic</p>
+			<p class="mb-1">Mentor: Vladimir Risojević</p>
 			<p class="mb-1">Član komisije: Vladan Stojnić</p>
 		</span>
 	</nav>
@@ -45,12 +46,12 @@
 
 	<div id="carousel" class="carousel slide container" data-ride="carousel">
 		<ol class="carousel-indicators" id="carousel-indicators-ldr">
-			<li data-target="#carousel" data-slide-to="0" class="active"></li>
+			<!-- <li data-target="#carousel" data-slide-to="0" class="active"></li>
 			<li data-target="#carousel" data-slide-to="1"></li>
-			<li data-target="#carousel" data-slide-to="2"></li>
+			<li data-target="#carousel" data-slide-to="2"></li> -->
 		</ol>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
+		<div class="carousel-inner" id="carousel-inner">
+			<!-- <div class="carousel-item active">
 				<img class="d-block w-100" src="/images/mini_before.jpg" alt="First slide">
 				<div class="carousel-caption d-none d-md-block">
 					<h5>...</h5>
@@ -59,10 +60,18 @@
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100" src="/images/mini_after.jpg" alt="Second slide">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>...</h5>
+					<p>...</p>
+				</div>
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100" src="/images/mini_before.jpg" alt="Third slide">
-			</div>
+				<div class="carousel-caption d-none d-md-block">
+					<h5>...</h5>
+					<p>...</p>
+				</div>
+			</div> -->
 		</div>
 		<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -74,13 +83,15 @@
 		</a>
 	</div>
 
-	<div >
+	<div class="container">
 		<h1 class="m-5">Slike</h1>
 		<div class="cocoen" id="container">
+			<!-- <div> -->
 			<div id="temp">
-				<!-- <img src="/images/buba_before.jpg" alt="" style="width: 700px;"> -->
+				<!-- canvas prvi -->
 			</div>
-			<!-- <img src="/images/buba_after.jpg" alt=""> -->
+			<!-- </div> -->
+			<!-- canvas drugi -->
 		</div>
 	</div>
 
@@ -91,7 +102,7 @@
 
 <footer>
 	<!-- <script src="/js/cocoen.min.js"></script> -->
-	<script src="/js/custom/temp.js"></script>
+	<script src="/js/custom/cocoen.canvas.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -108,11 +119,36 @@
 			jQuery.get({
 				url: '/images',
 				success: (result) => {
-					console.log(result);
-
-					ldrImages = result.filter(image => image.includes('before')); // ldr
-
-					console.log(ldrImages);
+					let ldrImages = result.filter(image => image.includes("jpg")); // ldr
+					let ldrIndicatorContainer = $("#carousel-indicators-ldr");
+					let innerCarousel = $("#carousel-inner");
+					
+					ldrImages.forEach((ldrImage, index) => {
+						let listItem = document.createElement("li");
+						$(listItem).attr("data-target", "#carousel");
+						$(listItem).attr("data-slide-to", index);
+						if (index == 0) $(listItem).addClass("active");
+						ldrIndicatorContainer.append(listItem);
+					
+						let carouselItem = document.createElement("div");
+						$(carouselItem).addClass("carousel-item");
+						if(index == 0) $(carouselItem).addClass("active");
+						let image = document.createElement("img");
+						$(image).addClass("d-block w-100");
+						$(image).attr("src", ldrImage);
+						$(image).attr("alt", ldrImage);
+						$(carouselItem).append(image);
+						let captionItem = document.createElement("div");
+						$(captionItem).addClass("carousel-caption d-none d-md-block");
+						let h4Item = document.createElement("h4");
+						$(h4Item).html(ldrImage.split("/")[2].split("\.")[0].toUpperCase().split("_").join(" "));
+						let h5Item = document.createElement("h5");
+						$(h5Item).html(`Format: ${ldrImage.split("/")[2].split("\.")[1].toUpperCase()}`);
+						$(captionItem).append(h4Item);
+						$(captionItem).append(h5Item);
+						$(carouselItem).append(captionItem);
+						innerCarousel.append(carouselItem);
+					});
 
 				},
 				error: (result) => {
@@ -120,39 +156,19 @@
 				}
 			});
 
-			
-
-			var myHDR = new HDRImage();
+			let myHDR = new HDRImage();
 			myHDR.src = '/images/test.hdr';
 			myHDR.id = 'prva';
-			var myHDR2 = new HDRImage();
+			let myHDR2 = new HDRImage();
 			myHDR2.src = '/images/test2.hdr';
 			myHDR2.id = 'druga';
 
-			// document.getElementById('temp').appendChild(myHDR);
-			// document.body.appendChild(myHDR2);
 			$("#temp").append(myHDR);
 			$("#container").append(myHDR2);
 
-			var myHDR3 = new HDRImage();
-			myHDR3.src = '/images/test.hdr';
-			myHDR3.id = 'treca';
-			document.body.appendChild(myHDR3);
-
-			// setTimeout(() => {}, 5000);
-
-			// var destCanvas = document.createElement('canvas');
-			// destCanvas.width = myHDR.width;
-			// destCanvas.height = myHDR.height;
-			// var destCtx = destCanvas.getContext('2d');
-			// destCtx.drawImage(myHDR, 0, 0);
-			// document.body.appendChild(myHDR3);
 			new Cocoen();
 		});
 
-		// document.addEventListener('DOMContentLoaded', function () {
-		// 	new Cocoen();
-		// });
 	</script>
 </footer>
 
