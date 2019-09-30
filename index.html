@@ -16,6 +16,12 @@
 			font-size: 16px;
 			margin: 2rem;
 			text-align: center;
+			background: rgb(96, 102, 105) !important;
+		}
+
+		.hdr-image {
+			max-width: 2145px !important;
+			max-height: 1450px !important;
 		}
 
 		.container {
@@ -46,10 +52,10 @@
 
 	<div id="carousel" class="carousel slide container" data-ride="carousel">
 		<ol class="carousel-indicators" id="carousel-indicators-ldr">
-			
+
 		</ol>
 		<div class="carousel-inner" id="carousel-inner">
-			
+
 		</div>
 		<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -61,17 +67,12 @@
 		</a>
 	</div>
 
-	<div class="container">
-		<h1 class="m-5">Slike</h1>
-		<div class="cocoen" id="container">
-			<!-- <div> -->
-			<div id="temp">
-				<!-- canvas prvi -->
-			</div>
-			<!-- </div> -->
-			<!-- canvas drugi -->
+	<form method="POST" action="/data">
+		<div class="container" id="hdr-images-container">
+			<h1 class="m-5">Slike</h1>
+
 		</div>
-	</div>
+	</form>
 
 	<br>
 	<br><br><br>
@@ -97,20 +98,20 @@
 			jQuery.get({
 				url: '/images',
 				success: (result) => {
-					let ldrImages = result.filter(image => image.includes("jpg")); // ldr
+					const ldrImages = result.filter(image => image.split("\.")[1].includes("jpg")); // ldr
 					let ldrIndicatorContainer = $("#carousel-indicators-ldr");
 					let innerCarousel = $("#carousel-inner");
-					
+
 					ldrImages.forEach((ldrImage, index) => {
 						let listItem = document.createElement("li");
 						$(listItem).attr("data-target", "#carousel");
 						$(listItem).attr("data-slide-to", index);
 						if (index == 0) $(listItem).addClass("active");
 						ldrIndicatorContainer.append(listItem);
-					
+
 						let carouselItem = document.createElement("div");
 						$(carouselItem).addClass("carousel-item");
-						if(index == 0) $(carouselItem).addClass("active");
+						if (index == 0) $(carouselItem).addClass("active");
 						let image = document.createElement("img");
 						$(image).addClass("d-block w-100");
 						$(image).attr("src", ldrImage);
@@ -128,23 +129,79 @@
 						innerCarousel.append(carouselItem);
 					});
 
+					const hdrImages = result.filter(image => image.split("\.")[1].includes("hdr")).slice(0, 4); // ogranici na prvih 8 radi testiranja zasad
+					let hdrContainer = $("#hdr-images-container");
+					hdrImages.forEach((hdrImage, index) => {
+						let el = document.createElement("h1");
+						let id = hdrImage.split("\.")[0].split("_")[0].split("/")[2];
+						if (index % 2 == 0) {
+							el.innerHTML = `1: ${id} v 2: ${id + '_CC'}`;
+						}
+						$(hdrContainer).append(el);
+
+						// zasad napravljeno da prikazuje par onih par slika iz druge baze, kad dobijem svoje slike promijeniti u skladu
+						// sa nazivima slika
+
+						if (index % 2 == 0) {
+							let container = document.createElement("div");
+							$(container).addClass("cocoen m-5");
+							$(container).attr("id", `container-${id}`);
+							let outerDiv = document.createElement("div");
+							let firstCanvasDiv = document.createElement("div");
+							$(firstCanvasDiv).attr("id", `first-canvas-${id}`);
+							$(outerDiv).append(firstCanvasDiv);
+							$(container).append(outerDiv);
+							let myFirstHDR = new HDRImage();
+							myFirstHDR.src = hdrImage;
+							$(firstCanvasDiv).append(myFirstHDR);
+							let mySecondHDR = new HDRImage();
+							mySecondHDR.src = hdrImage.replace(id, id + "_CC");
+							mySecondHDR.id = `second-canvas-${id}`;
+							$(mySecondHDR).addClass("hdr-image");
+							$(container).append(mySecondHDR);
+							$(hdrContainer).append(container);
+							new Cocoen($(firstCanvasDiv).attr("id"), $(container).attr("id"));
+
+							$(hdrContainer).append(getRadioOptions(id));
+							$(hdrContainer).append(getRadioOptions(id + "_CC"));
+							let hrElement = document.createElement("hr");
+							$(hrElement).css("color", "white");
+							$(hdrContainer).append(hrElement);
+						}
+
+					});
+
+					let buttonSubmitElement = document.createElement("button");
+					$(buttonSubmitElement).attr("type", "submit");
+					$(buttonSubmitElement).addClass("btn btn-primary");
+					$(buttonSubmitElement).html("<h2>Potvrdi odgovore</h2>");
+					$(hdrContainer).append(buttonSubmitElement);
+
 				},
 				error: (result) => {
 					console.error(result);
 				}
 			});
 
-			let myHDR = new HDRImage();
-			myHDR.src = '/images/test.hdr';
-			myHDR.id = 'prva';
-			let myHDR2 = new HDRImage();
-			myHDR2.src = '/images/test2.hdr';
-			myHDR2.id = 'druga';
+			const getRadioOptions = (id) => {
+				let radioContainer = document.createElement("div");
+				$(radioContainer).addClass("form-check form-check-inline ml-5");
+				let inputElementFirst = document.createElement("input");
+				$(inputElementFirst).addClass("form-check-input");
+				$(inputElementFirst).attr("type", "radio");
+				$(inputElementFirst).attr("id", `inline-radio-${id}`);
+				$(inputElementFirst).attr("value", id);
+				$(inputElementFirst).attr("name", `radio-name-${id.split("_")[0]}`); // opet, imena i slicno prilagoditi datim slikama, eventualno dati samo lijevo desno opciju
+				// to bi vjerovatno bilo najbolje, najmanji bias ispitanika
+				$(radioContainer).append(inputElementFirst);
+				let labelElementFirst = document.createElement("h2");
+				$(labelElementFirst).addClass("form-check-label");
+				$(labelElementFirst).attr("for", `inline-radio-${id}`);
+				$(labelElementFirst).html(id);
+				$(radioContainer).append(labelElementFirst);
+				return radioContainer;
+			};
 
-			$("#temp").append(myHDR);
-			$("#container").append(myHDR2);
-
-			new Cocoen();
 		});
 
 	</script>

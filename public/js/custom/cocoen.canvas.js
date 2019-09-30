@@ -1,8 +1,9 @@
 class Cocoen {
-    constructor(element, options) {
+    constructor(id, containerId, element, options) {
       this.options = Object.assign({}, Cocoen.defaults, options);
-      this.element = element || document.querySelector('.cocoen');
-  
+      this.id = id;
+      this.containerId = containerId;
+      this.element = element || document.querySelector(`#${this.containerId}`);
       this.init();
     }
   
@@ -17,21 +18,11 @@ class Cocoen {
       const span = document.createElement('span');
       span.className = this.options.dragElementSelector.replace('.', '');
       this.element.appendChild(span);
-      // Wrap first image in div
-    //   const wrapper = document.createElement('div');
-      console.log('element', this.element);
-      const firstImage = this.element.querySelector('div:first-child').querySelector(':first-child');
-      console.log('prva slika', firstImage.src, firstImage.id, firstImage);
-    //   let node = cloneCanvas(firstImage);
-    //   wrapper.appendChild(node);
-    //   console.log('node', node);
-    //   console.log('wrapper', wrapper);
-    //   firstImage.parentNode.replaceChild(wrapper, firstImage);
-      // Set class elements we need later
+      this.firstImage = this.element.querySelector(`#${this.id}:first-child`).querySelector(':first-child');
       this.dragElement = this.element.querySelector(this.options.dragElementSelector);
       this.beforeElement = this.element.querySelector('div:first-child');
-      console.log('beforeEl', this.beforeElement);
       this.beforeImage = this.beforeElement.querySelector('canvas');
+      this.afterImage = this.element.querySelector(`.hdr-image`);
     }
   
     addEventListeners() {
@@ -47,8 +38,12 @@ class Cocoen {
   
     dimensions() {
       this.elementWidth = parseInt(window.getComputedStyle(this.element).width, 10);
+      this.elementHeight = parseInt(window.getComputedStyle(this.element).height, 10);
       this.elementOffsetLeft = this.element.getBoundingClientRect().left + document.body.scrollLeft;
-      this.beforeImage.style.width = `${this.elementWidth}`;
+      this.beforeImage.style.width = `${this.elementWidth}px`;
+      this.beforeImage.style.height = `100%`;
+      this.afterImage.style.width = `${this.elementWidth}px`;
+      this.afterImage.style.height = `100%`;
       this.dragElementWidth = parseInt(window.getComputedStyle(this.dragElement).width, 10);
       this.minLeftPos = this.elementOffsetLeft;
       this.maxLeftPos = (this.elementOffsetLeft + this.elementWidth) - this.dragElementWidth;

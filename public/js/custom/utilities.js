@@ -11,7 +11,7 @@ module.exports.getImages = (req, res, next) => {
             res.json(err);
         } else {
             // console.log('ovdje', items);
-            images = items.filter(item => item.endsWith('jpg'));
+            images = items; //.filter(item => item.endsWith('jpg'));
             images.forEach((part, index) => {
                 images[index] = '/images/' + images[index];
             });
