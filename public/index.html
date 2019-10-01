@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0039)https://koenromers.com/cocoen/demo.html -->
+
 <html>
 
 <head>
@@ -70,7 +70,12 @@
 	<form method="POST" action="/data">
 		<div class="container" id="hdr-images-container">
 			<h1 class="m-5">Slike</h1>
-
+			<h2>Ispod se nalazi serija slika i polje za unos korisničkog imena (indeks). Od ispitanika se traži da
+				zaokruži koja slika Fmu se vizuelno više dopada. Između slika se nalazi vertikalni klizač kako bi
+				ispitanik mogao da uporedi efikasno i efektivno detalje na slici. Test nije vremenski ograničen.
+			</h2>
+			<input class="form-control mt-5 mb-5" required type="text" style="width:300px; margin-left:calc(50% - 150px);"
+				placeholder="Korisničko ime: XXXX-YY" name="username">
 		</div>
 	</form>
 
@@ -87,11 +92,11 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+	</script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
 	<script src="/js/hdrpng.min.js"></script>
 	<script>
 		$(document).ready(() => {
@@ -120,16 +125,19 @@
 						let captionItem = document.createElement("div");
 						$(captionItem).addClass("carousel-caption d-none d-md-block");
 						let h4Item = document.createElement("h4");
-						$(h4Item).html(ldrImage.split("/")[2].split("\.")[0].toUpperCase().split("_").join(" "));
+						$(h4Item).html(ldrImage.split("/")[2].split("\.")[0].toUpperCase().split(
+							"_").join(" "));
 						let h5Item = document.createElement("h5");
-						$(h5Item).html(`Format: ${ldrImage.split("/")[2].split("\.")[1].toUpperCase()}`);
+						$(h5Item).html(
+							`Format: ${ldrImage.split("/")[2].split("\.")[1].toUpperCase()}`);
 						$(captionItem).append(h4Item);
 						$(captionItem).append(h5Item);
 						$(carouselItem).append(captionItem);
 						innerCarousel.append(carouselItem);
 					});
 
-					const hdrImages = result.filter(image => image.split("\.")[1].includes("hdr")).slice(0, 4); // ogranici na prvih 8 radi testiranja zasad
+					const hdrImages = result.filter(image => image.split("\.")[1].includes("hdr")).slice(
+						0, 8); // ogranici na prvih 8 radi testiranja zasad
 					let hdrContainer = $("#hdr-images-container");
 					hdrImages.forEach((hdrImage, index) => {
 						let el = document.createElement("h1");
@@ -186,24 +194,25 @@
 			const getRadioOptions = (id) => {
 				let radioContainer = document.createElement("div");
 				$(radioContainer).addClass("form-check form-check-inline ml-5");
-				let inputElementFirst = document.createElement("input");
-				$(inputElementFirst).addClass("form-check-input");
-				$(inputElementFirst).attr("type", "radio");
-				$(inputElementFirst).attr("id", `inline-radio-${id}`);
-				$(inputElementFirst).attr("value", id);
-				$(inputElementFirst).attr("name", `radio-name-${id.split("_")[0]}`); // opet, imena i slicno prilagoditi datim slikama, eventualno dati samo lijevo desno opciju
+				let inputElement = document.createElement("input");
+				$(inputElement).addClass("form-check-input");
+				$(inputElement).attr("type", "radio");
+				$(inputElement).attr("id", `inline-radio-${id}`);
+				$(inputElement).attr("value", id);
+				$(inputElement).attr("name",
+					`radio-name-${id.split("_")[0]}`
+					); // opet, imena i slicno prilagoditi datim slikama, eventualno dati samo lijevo desno opciju
 				// to bi vjerovatno bilo najbolje, najmanji bias ispitanika
-				$(radioContainer).append(inputElementFirst);
-				let labelElementFirst = document.createElement("h2");
-				$(labelElementFirst).addClass("form-check-label");
-				$(labelElementFirst).attr("for", `inline-radio-${id}`);
-				$(labelElementFirst).html(id);
-				$(radioContainer).append(labelElementFirst);
+				$(radioContainer).append(inputElement);
+				let labelElement = document.createElement("h2");
+				$(labelElement).addClass("form-check-label");
+				$(labelElement).attr("for", `inline-radio-${id}`);
+				$(labelElement).html(id);
+				$(radioContainer).append(labelElement);
 				return radioContainer;
 			};
 
 		});
-
 	</script>
 </footer>
 
