@@ -199,6 +199,7 @@
 				$(inputElement).attr("type", "radio");
 				$(inputElement).attr("id", `inline-radio-${id}`);
 				$(inputElement).attr("value", id);
+				$(inputElement).attr("required", "true");
 				$(inputElement).attr("name",
 					`radio-name-${id.split("_")[0]}`
 					); // opet, imena i slicno prilagoditi datim slikama, eventualno dati samo lijevo desno opciju
