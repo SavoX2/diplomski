@@ -71,11 +71,12 @@
 		<div class="container" id="hdr-images-container">
 			<h1 class="m-5">Slike</h1>
 			<h2>Ispod se nalazi serija slika i polje za unos korisničkog imena (indeks). Od ispitanika se traži da
-				zaokruži koja slika Fmu se vizuelno više dopada. Između slika se nalazi vertikalni klizač kako bi
+				zaokruži koja slika mu se vizuelno više dopada. Između slika se nalazi vertikalni klizač kako bi
 				ispitanik mogao da uporedi efikasno i efektivno detalje na slici. Test nije vremenski ograničen.
 			</h2>
-			<input class="form-control mt-5 mb-5" required type="text" style="width:300px; margin-left:calc(50% - 150px);"
-				placeholder="Korisničko ime: XXXX-YY" name="username">
+			<input class="form-control mt-5 mb-5" required type="text"
+				style="width:300px; margin-left:calc(50% - 150px);" placeholder="Korisničko ime: XXXX-YY"
+				name="username">
 		</div>
 	</form>
 
@@ -137,20 +138,53 @@
 					});
 
 					const hdrImages = result.filter(image => image.split("\.")[1].includes("hdr")).slice(
-						0, 8); // ogranici na prvih 8 radi testiranja zasad
+						0, 9); // ogranici na prvih 8 radi testiranja zasad
+					console.log(hdrImages);
 					let hdrContainer = $("#hdr-images-container");
 					hdrImages.forEach((hdrImage, index) => {
 						let el = document.createElement("h1");
 						let id = hdrImage.split("\.")[0].split("_")[0].split("/")[2];
-						if (index % 2 == 0) {
-							el.innerHTML = `1: ${id} v 2: ${id + '_CC'}`;
+						if (index % 3 == 0) {
+							el.innerHTML = `1: ${id} v 2: ${id}_CC v 3: ${id}_TT`;
+
+							let selectDiv = document.createElement("div");
+							$(selectDiv).css("width", "fit-content");
+							$(selectDiv).css("margin-left", "calc(50% - 150px)");
+							$(selectDiv).addClass("input-group mb-3");
+							let prependDiv = document.createElement("div");
+							$(prependDiv).addClass("input-group-prepend");
+							let prependLabel = document.createElement("label");
+							$(prependLabel).addClass("input-group-text");
+							$(prependLabel).attr("for", `select-${id}`);
+							$(prependLabel).html("Moguce opcije");
+							$(prependDiv).append(prependLabel);
+							$(selectDiv).append(prependDiv);
+							let selectElement = document.createElement("select");
+							$(selectElement).addClass("custom-select");
+							$(selectElement).attr("id", `select-${id}`);
+							let optionOne = document.createElement("option");
+							$(optionOne).attr("selected", "true");
+							$(optionOne).html(`${id} v ${id}_CC`);
+							$(optionOne).attr("value", `${id}-${id}_CC`);
+							$(selectElement).append(optionOne);
+							let optionTwo = document.createElement("option");
+							$(optionTwo).html(`${id} v ${id}_TT`);
+							$(optionTwo).attr("value", `${id}-${id}_TT`);
+							$(selectElement).append(optionTwo);
+							let optionThree = document.createElement("option");
+							$(optionThree).html(`${id}_CC v ${id}_TT`);
+							$(optionThree).attr("value", `${id}_CC-${id}_TT`);
+							$(selectElement).append(optionThree);
+							$(selectDiv).append(selectElement);
+
+							$(hdrContainer).append(el);
+							$(hdrContainer).append(selectDiv);
 						}
-						$(hdrContainer).append(el);
 
 						// zasad napravljeno da prikazuje par onih par slika iz druge baze, kad dobijem svoje slike promijeniti u skladu
 						// sa nazivima slika
 
-						if (index % 2 == 0) {
+						if (index % 3 == 0) {
 							let container = document.createElement("div");
 							$(container).addClass("cocoen m-5");
 							$(container).attr("id", `container-${id}`);
@@ -202,7 +236,7 @@
 				$(inputElement).attr("required", "true");
 				$(inputElement).attr("name",
 					`radio-name-${id.split("_")[0]}`
-					); // opet, imena i slicno prilagoditi datim slikama, eventualno dati samo lijevo desno opciju
+				); // opet, imena i slicno prilagoditi datim slikama, eventualno dati samo lijevo desno opciju
 				// to bi vjerovatno bilo najbolje, najmanji bias ispitanika
 				$(radioContainer).append(inputElement);
 				let labelElement = document.createElement("h2");
