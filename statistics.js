@@ -5,9 +5,12 @@ const chalk = require('chalk');
 let dict = {};
 
 fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
+
     files.forEach(file => {
+
         const json = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'users', file)));
         const keys = Object.keys(json);
+
         keys.forEach(key => {
             if (key !== 'username') {
                 if (json[key].endsWith('_CC')) {
@@ -32,9 +35,10 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
             }
         });
     });
+
     const keys = Object.keys(dict).sort();
-    console.log(keys);
     let statsDict = {};
+
     keys.forEach(key => {
         if (key.endsWith('_CC')) {
             if (!dict[key.replace('_CC', '')]) {
@@ -98,7 +102,9 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
             };
         }
     });
+
     const statsKeys = Object.keys(statsDict).sort();
+
     statsKeys.forEach((key, index) => {
         switch (index % 3) {
             case 0:

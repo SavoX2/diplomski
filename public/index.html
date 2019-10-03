@@ -75,8 +75,8 @@
 				ispitanik mogao da uporedi efikasno i efektivno detalje na slici. Test nije vremenski ograničen.
 			</h2>
 			<input class="form-control mt-5 mb-5" required type="text"
-				style="width:400px; margin-left:calc(50% - 200px); font-size: 30px;" placeholder="Korisničko ime: XXXX-YY"
-				name="username">
+				style="width:400px; margin-left:calc(50% - 200px); font-size: 30px;"
+				placeholder="Korisničko ime: XXXX-YY" name="username">
 		</div>
 	</form>
 
@@ -147,15 +147,14 @@
 					hdrImages.forEach((hdrImage, index) => {
 						let el = document.createElement("h1");
 						let id = hdrImage.split("\.")[0].split("_")[0].split("/")[2];
-						
+
 						if (index % 3 == 0) {
 							dict[id] = `container-${id}-${id}_CC`;
-							console.log(dict);
 							el.innerHTML = `1: ${id} v 2: ${id}_CC v 3: ${id}_TT`;
 
 							let selectDiv = document.createElement("div");
 							$(selectDiv).css("width", "fit-content");
-							
+
 							$(selectDiv).addClass("input-group mb-3");
 							let prependDiv = document.createElement("div");
 							$(prependDiv).addClass("input-group-prepend");
@@ -211,7 +210,8 @@
 							$(mySecondHDR).addClass("hdr-image");
 							$(firstContainer).append(mySecondHDR);
 							$(hdrContainer).append(firstContainer);
-							new Cocoen($(firstCanvasDiv).attr("id"), $(firstContainer).attr("id"));
+							new Cocoen($(firstCanvasDiv).attr("id"), $(firstContainer).attr(
+							"id"));
 
 							let secondContainer = document.createElement("div");
 							$(secondContainer).addClass("cocoen m-5");
@@ -230,7 +230,8 @@
 							$(mySecondSecondHDR).addClass("hdr-image");
 							$(secondContainer).append(mySecondSecondHDR);
 							$(hdrContainer).append(secondContainer);
-							new Cocoen($(secondCanvasDiv).attr("id"), $(secondContainer).attr("id"));
+							new Cocoen($(secondCanvasDiv).attr("id"), $(secondContainer).attr(
+								"id"));
 							$(secondContainer).hide();
 
 							let thirdContainer = document.createElement("div");
@@ -250,7 +251,8 @@
 							$(myThirdSecondHDR).addClass("hdr-image");
 							$(thirdContainer).append(myThirdSecondHDR);
 							$(hdrContainer).append(thirdContainer);
-							new Cocoen($(thirdCanvasDiv).attr("id"), $(thirdContainer).attr("id"));
+							new Cocoen($(thirdCanvasDiv).attr("id"), $(thirdContainer).attr(
+							"id"));
 							$(thirdContainer).hide();
 
 							$(hdrContainer).append(getRadioOptions(id));
@@ -269,9 +271,13 @@
 					$(buttonSubmitElement).html("<h2>Potvrdi odgovore</h2>");
 					$(hdrContainer).append(buttonSubmitElement);
 
-					$('select').on('change', ({currentTarget:target}) => {
-						$(`#${dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "")]}`).hide();
-						dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "")] = `container-${target.value}`;
+					$('select').on('change', ({
+						currentTarget: target
+					}) => {
+						$(`#${dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "")]}`)
+							.hide();
+						dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "")] =
+							`container-${target.value}`;
 						$(`#container-${target.value}`).show();
 					});
 
