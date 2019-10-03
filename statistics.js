@@ -11,19 +11,19 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
         keys.forEach(key => {
             if (key !== 'username') {
                 if (json[key].endsWith('_CC')) {
-                    if (dict[`${key}_CC`] == undefined) {
+                    if (!dict[`${key}_CC`]) {
                         dict[`${key}_CC`] = 1;
                     } else {
                         dict[`${key}_CC`] += 1;
                     }
-                } else if(json[key].endsWith('_TT')) {
-                    if (dict[`${key}_TT`] == undefined) {
+                } else if (json[key].endsWith('_TT')) {
+                    if (!dict[`${key}_TT`]) {
                         dict[`${key}_TT`] = 1;
                     } else {
                         dict[`${key}_TT`] += 1;
                     }
                 } else {
-                    if (dict[key] == undefined) {
+                    if (!dict[key]) {
                         dict[key] = 1;
                     } else {
                         dict[key] += 1;
@@ -33,18 +33,86 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
         });
     });
     const keys = Object.keys(dict).sort();
+    console.log(keys);
+    let statsDict = {};
     keys.forEach(key => {
         if (key.endsWith('_CC')) {
+            if (!dict[key.replace('_CC', '')]) {
+                dict[key.replace('_CC', '')] = 0;
+                statsDict[key.replace('radio-name-', '').replace('_CC', '')] = {
+                    number: 0,
+                    percentage: 0,
+                };
+            }
+            if (!dict[key.replace('_CC', '_TT')]) {
+                dict[key.replace('_CC', '_TT')] = 0;
+                statsDict[key.replace('radio-name-', '').replace('_CC', '_TT')] = {
+                    number: 0,
+                    percentage: 0,
+                };
+            }
             const percentage = (dict[key] / (dict[key] + dict[key.replace('_CC', '')] + dict[key.replace('_CC', '_TT')])) * 100;
-            console.log(chalk.red.inverse(`${key.replace('radio-name-', '')}:`), chalk.red(starLength(dict[key])), chalk.red.inverse(`${percentage}%`));
-        } else if(key.endsWith('_TT')) {
-            const percentage = (dict[key] / (dict[key.replace('_TT', '')] + dict[key] + dict[`${key}_CC`])) * 100;
-            console.log(chalk.yellow.inverse(`${key.replace('radio-name-', '')}:`), chalk.yellow(starLength(dict[key])), chalk.yellow.inverse(`${percentage}%`));
+            statsDict[key.replace('radio-name-', '')] = {
+                number: dict[key],
+                percentage
+            };
+        } else if (key.endsWith('_TT')) {
+            if (!dict[key.replace('_TT', '')]) {
+                dict[key.replace('_TT', '')] = 0;
+                statsDict[key.replace('radio-name-', '').replace('_TT', '')] = {
+                    number: 0,
+                    percentage: 0,
+                };
+            }
+            if (!dict[key.replace('_TT', '_CC')]) {
+                dict[key.replace('_TT', '_CC')] = 0;
+                statsDict[key.replace('radio-name-', '').replace('_TT', '_CC')] = {
+                    number: 0,
+                    percentage: 0,
+                };
+            }
+            const percentage = (dict[key] / (dict[key.replace('_TT', '')] + dict[key] + dict[key.replace('_TT', '_CC')])) * 100;
+            statsDict[key.replace('radio-name-', '')] = {
+                number: dict[key],
+                percentage
+            };
         } else {
+            if (!dict[`${key}_CC`]) {
+                dict[`${key}_CC`] = 0;
+                statsDict[`${key.replace('radio-name-', '')}_CC`] = {
+                    number: 0,
+                    percentage: 0
+                };
+            }
+            if (!dict[`${key}_TT`]) {
+                dict[`${key}_TT`] = 0;
+                statsDict[`${key.replace('radio-name-', '')}_TT`] = {
+                    number: 0,
+                    percentage: 0
+                };
+            }
             const percentage = (dict[key] / (dict[key] + dict[`${key}_CC`] + dict[`${key}_TT`])) * 100;
-            console.log(chalk.green.inverse(`${key.replace('radio-name-', '')}:`), chalk.green(starLength(dict[key])), chalk.green.inverse(`${percentage}%`));
+            statsDict[key.replace('radio-name-', '')] = {
+                number: dict[key],
+                percentage
+            };
         }
-    })
+    });
+    const statsKeys = Object.keys(statsDict).sort();
+    statsKeys.forEach((key, index) => {
+        switch (index % 3) {
+            case 0:
+                console.log(chalk.red.inverse(`${key}:`), chalk.red(starLength(statsDict[key].number)), chalk.red.inverse(`${statsDict[key].percentage}%`));
+                break;
+            case 1:
+                console.log(chalk.yellow.inverse(`${key}:`), chalk.yellow(starLength(statsDict[key].number)), chalk.yellow.inverse(`${statsDict[key].percentage}%`));
+                break;
+            case 2:
+                console.log(chalk.green.inverse(`${key}:`), chalk.green(starLength(statsDict[key].number)), chalk.green.inverse(`${statsDict[key].percentage}%`));
+                break;
+        }
+    });
+
 });
 
 const starLength = (number) => {
