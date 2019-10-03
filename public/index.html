@@ -75,7 +75,7 @@
 				ispitanik mogao da uporedi efikasno i efektivno detalje na slici. Test nije vremenski ograničen.
 			</h2>
 			<input class="form-control mt-5 mb-5" required type="text"
-				style="width:300px; margin-left:calc(50% - 150px);" placeholder="Korisničko ime: XXXX-YY"
+				style="width:400px; margin-left:calc(50% - 200px); font-size: 30px;" placeholder="Korisničko ime: XXXX-YY"
 				name="username">
 		</div>
 	</form>
@@ -101,6 +101,9 @@
 	<script src="/js/hdrpng.min.js"></script>
 	<script>
 		$(document).ready(() => {
+
+			let dict = {};
+
 			jQuery.get({
 				url: '/images',
 				success: (result) => {
@@ -138,74 +141,121 @@
 					});
 
 					const hdrImages = result.filter(image => image.split("\.")[1].includes("hdr")).slice(
-						0, 9); // ogranici na prvih 8 radi testiranja zasad
+						0, 9); // ogranici na prva 3 radi testiranja zasad
 					console.log(hdrImages);
 					let hdrContainer = $("#hdr-images-container");
 					hdrImages.forEach((hdrImage, index) => {
 						let el = document.createElement("h1");
 						let id = hdrImage.split("\.")[0].split("_")[0].split("/")[2];
+						
 						if (index % 3 == 0) {
+							dict[id] = `container-${id}-${id}_CC`;
+							console.log(dict);
 							el.innerHTML = `1: ${id} v 2: ${id}_CC v 3: ${id}_TT`;
 
 							let selectDiv = document.createElement("div");
 							$(selectDiv).css("width", "fit-content");
-							$(selectDiv).css("margin-left", "calc(50% - 150px)");
+							
 							$(selectDiv).addClass("input-group mb-3");
 							let prependDiv = document.createElement("div");
 							$(prependDiv).addClass("input-group-prepend");
 							let prependLabel = document.createElement("label");
 							$(prependLabel).addClass("input-group-text");
 							$(prependLabel).attr("for", `select-${id}`);
-							$(prependLabel).html("Moguce opcije");
+							$(prependLabel).html("<h2>Moguće opcije</h2>");
 							$(prependDiv).append(prependLabel);
+							$(selectDiv).css("margin-left", `calc(50% - 280px)`);
 							$(selectDiv).append(prependDiv);
 							let selectElement = document.createElement("select");
-							$(selectElement).addClass("custom-select");
-							$(selectElement).attr("id", `select-${id}`);
+							$(selectElement).addClass("custom-select h2");
+							$(selectElement).attr("id", `select-${id}`)
+							$(selectElement).css("font-size", "30px");
 							let optionOne = document.createElement("option");
 							$(optionOne).attr("selected", "true");
 							$(optionOne).html(`${id} v ${id}_CC`);
 							$(optionOne).attr("value", `${id}-${id}_CC`);
+							$(optionOne).addClass("h2");
 							$(selectElement).append(optionOne);
 							let optionTwo = document.createElement("option");
 							$(optionTwo).html(`${id} v ${id}_TT`);
 							$(optionTwo).attr("value", `${id}-${id}_TT`);
+							$(optionTwo).addClass("h2");
 							$(selectElement).append(optionTwo);
 							let optionThree = document.createElement("option");
 							$(optionThree).html(`${id}_CC v ${id}_TT`);
 							$(optionThree).attr("value", `${id}_CC-${id}_TT`);
+							$(optionThree).addClass("h2");
 							$(selectElement).append(optionThree);
 							$(selectDiv).append(selectElement);
 
 							$(hdrContainer).append(el);
 							$(hdrContainer).append(selectDiv);
-						}
 
-						// zasad napravljeno da prikazuje par onih par slika iz druge baze, kad dobijem svoje slike promijeniti u skladu
-						// sa nazivima slika
+							// zasad napravljeno da prikazuje par onih par slika iz druge baze, kad dobijem svoje slike promijeniti u skladu
+							// sa nazivima slika
 
-						if (index % 3 == 0) {
-							let container = document.createElement("div");
-							$(container).addClass("cocoen m-5");
-							$(container).attr("id", `container-${id}`);
+							let firstContainer = document.createElement("div");
+							$(firstContainer).addClass("cocoen m-5");
+							$(firstContainer).attr("id", `container-${id}-${id}_CC`);
 							let outerDiv = document.createElement("div");
 							let firstCanvasDiv = document.createElement("div");
 							$(firstCanvasDiv).attr("id", `first-canvas-${id}`);
 							$(outerDiv).append(firstCanvasDiv);
-							$(container).append(outerDiv);
+							$(firstContainer).append(outerDiv);
 							let myFirstHDR = new HDRImage();
 							myFirstHDR.src = hdrImage;
 							$(firstCanvasDiv).append(myFirstHDR);
 							let mySecondHDR = new HDRImage();
-							mySecondHDR.src = hdrImage.replace(id, id + "_CC");
-							mySecondHDR.id = `second-canvas-${id}`;
+							mySecondHDR.src = hdrImage.replace(id, `${id}_CC`);
+							// mySecondHDR.id = `second-canvas-${id}`;
 							$(mySecondHDR).addClass("hdr-image");
-							$(container).append(mySecondHDR);
-							$(hdrContainer).append(container);
-							new Cocoen($(firstCanvasDiv).attr("id"), $(container).attr("id"));
+							$(firstContainer).append(mySecondHDR);
+							$(hdrContainer).append(firstContainer);
+							new Cocoen($(firstCanvasDiv).attr("id"), $(firstContainer).attr("id"));
+
+							let secondContainer = document.createElement("div");
+							$(secondContainer).addClass("cocoen m-5");
+							$(secondContainer).attr("id", `container-${id}-${id}_TT`);
+							let secondOuterDiv = document.createElement("div");
+							let secondCanvasDiv = document.createElement("div");
+							$(secondCanvasDiv).attr("id", `second-canvas-${id}`);
+							$(secondOuterDiv).append(secondCanvasDiv);
+							$(secondContainer).append(secondOuterDiv);
+							let mySecondFirstHDR = new HDRImage();
+							mySecondFirstHDR.src = hdrImage;
+							$(secondCanvasDiv).append(mySecondFirstHDR);
+							let mySecondSecondHDR = new HDRImage();
+							mySecondSecondHDR.src = hdrImage.replace(id, `${id}_TT`);
+							// mySecondSecondHDR.id = `second-canvas-${id}`;
+							$(mySecondSecondHDR).addClass("hdr-image");
+							$(secondContainer).append(mySecondSecondHDR);
+							$(hdrContainer).append(secondContainer);
+							new Cocoen($(secondCanvasDiv).attr("id"), $(secondContainer).attr("id"));
+							$(secondContainer).hide();
+
+							let thirdContainer = document.createElement("div");
+							$(thirdContainer).addClass("cocoen m-5");
+							$(thirdContainer).attr("id", `container-${id}_CC-${id}_TT`);
+							let thirdOuterDiv = document.createElement("div");
+							let thirdCanvasDiv = document.createElement("div");
+							$(thirdCanvasDiv).attr("id", `third-canvas-${id}`);
+							$(thirdOuterDiv).append(thirdCanvasDiv);
+							$(thirdContainer).append(thirdOuterDiv);
+							let mythirdFirstHDR = new HDRImage();
+							mythirdFirstHDR.src = hdrImage.replace(id, `${id}_CC`);
+							$(thirdCanvasDiv).append(mythirdFirstHDR);
+							let myThirdSecondHDR = new HDRImage();
+							myThirdSecondHDR.src = hdrImage.replace(id, `${id}_TT`);
+							// mySecondSecondHDR.id = `second-canvas-${id}`;
+							$(myThirdSecondHDR).addClass("hdr-image");
+							$(thirdContainer).append(myThirdSecondHDR);
+							$(hdrContainer).append(thirdContainer);
+							new Cocoen($(thirdCanvasDiv).attr("id"), $(thirdContainer).attr("id"));
+							$(thirdContainer).hide();
 
 							$(hdrContainer).append(getRadioOptions(id));
-							$(hdrContainer).append(getRadioOptions(id + "_CC"));
+							$(hdrContainer).append(getRadioOptions(`${id}_CC`));
+							$(hdrContainer).append(getRadioOptions(`${id}_TT`));
 							let hrElement = document.createElement("hr");
 							$(hrElement).css("color", "white");
 							$(hdrContainer).append(hrElement);
@@ -218,6 +268,12 @@
 					$(buttonSubmitElement).addClass("btn btn-primary");
 					$(buttonSubmitElement).html("<h2>Potvrdi odgovore</h2>");
 					$(hdrContainer).append(buttonSubmitElement);
+
+					$('select').on('change', ({currentTarget:target}) => {
+						$(`#${dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "")]}`).hide();
+						dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "")] = `container-${target.value}`;
+						$(`#container-${target.value}`).show();
+					});
 
 				},
 				error: (result) => {
