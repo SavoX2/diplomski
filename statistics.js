@@ -25,6 +25,12 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
                     } else {
                         dict[`${key}_TT`] += 1;
                     }
+                } else if (json[key].endsWith('_LDR')) {
+                    if (!dict[`${key}_LDR`]) {
+                        dict[`${key}_LDR`] = 1;
+                    } else {
+                        dict[`${key}_LDR`] += 1;
+                    }
                 } else {
                     if (!dict[key]) {
                         dict[key] = 1;
@@ -55,7 +61,14 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
                     percentage: 0,
                 };
             }
-            const percentage = (dict[key] / (dict[key] + dict[key.replace('_CC', '')] + dict[key.replace('_CC', '_TT')])) * 100;
+            if (!dict[key.replace('_CC', '_LDR')]) {
+                dict[key.replace('_CC', '_LDR')] = 0;
+                statsDict[key.replace('radio-name-', '').replace('_CC', '_LDR')] = {
+                    number: 0,
+                    percentage: 0,
+                };
+            }
+            const percentage = (dict[key] / (dict[key] + dict[key.replace('_CC', '')] + dict[key.replace('_CC', '_TT')] + dict[key.replace('_CC', '_LDR')])) * 100;
             statsDict[key.replace('radio-name-', '')] = {
                 number: dict[key],
                 percentage
@@ -75,7 +88,41 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
                     percentage: 0,
                 };
             }
-            const percentage = (dict[key] / (dict[key.replace('_TT', '')] + dict[key] + dict[key.replace('_TT', '_CC')])) * 100;
+            if (!dict[key.replace('_TT', '_LDR')]) {
+                dict[key.replace('_TT', '_LDR')] = 0;
+                statsDict[key.replace('radio-name-', '').replace('_TT', '_LDR')] = {
+                    number: 0,
+                    percentage: 0,
+                };
+            }
+            const percentage = (dict[key] / (dict[key.replace('_TT', '')] + dict[key] + dict[key.replace('_TT', '_CC')] + dict[key.replace('_TT', '_LDR')])) * 100;
+            statsDict[key.replace('radio-name-', '')] = {
+                number: dict[key],
+                percentage
+            };
+        } else if (key.endsWith('_LDR')) {
+            if (!dict[key.replace('_LDR', '')]) {
+                dict[key.replace('_LDR', '')] = 0;
+                statsDict[key.replace('radio-name-', '').replace('_LDR', '')] = {
+                    number: 0,
+                    percentage: 0,
+                };
+            }
+            if (!dict[key.replace('_LDR', '_CC')]) {
+                dict[key.replace('_LDR', '_CC')] = 0;
+                statsDict[key.replace('radio-name-', '').replace('_LDR', '_CC')] = {
+                    number: 0,
+                    percentage: 0,
+                };
+            }
+            if (!dict[key.replace('_LDR', '')]) {
+                dict[key.replace('_LDR', '')] = 0;
+                statsDict[key.replace('radio-name-', '').replace('_LDR', '')] = {
+                    number: 0,
+                    percentage: 0,
+                };
+            }
+            const percentage = (dict[key] / (dict[key.replace('_LDR', '')] + dict[key] + dict[key.replace('_LDR', '_CC')] + dict[key.replace('_LDR', '_TT')])) * 100;
             statsDict[key.replace('radio-name-', '')] = {
                 number: dict[key],
                 percentage
@@ -95,7 +142,14 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
                     percentage: 0
                 };
             }
-            const percentage = (dict[key] / (dict[key] + dict[`${key}_CC`] + dict[`${key}_TT`])) * 100;
+            if (!dict[`${key}_LDR`]) {
+                dict[`${key}_LDR`] = 0;
+                statsDict[`${key.replace('radio-name-', '')}_LDR`] = {
+                    number: 0,
+                    percentage: 0
+                };
+            }
+            const percentage = (dict[key] / (dict[key] + dict[`${key}_CC`] + dict[`${key}_TT`] + dict[`${key}_LDR`])) * 100;
             statsDict[key.replace('radio-name-', '')] = {
                 number: dict[key],
                 percentage
@@ -106,7 +160,7 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
     const statsKeys = Object.keys(statsDict).sort();
 
     statsKeys.forEach((key, index) => {
-        switch (index % 3) {
+        switch (index % 4) {
             case 0:
                 console.log(chalk.red.inverse(`${key}:`), chalk.red(starLength(statsDict[key].number)), chalk.red.inverse(`${statsDict[key].percentage}%`));
                 break;
@@ -115,6 +169,9 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
                 break;
             case 2:
                 console.log(chalk.green.inverse(`${key}:`), chalk.green(starLength(statsDict[key].number)), chalk.green.inverse(`${statsDict[key].percentage}%`));
+                break;
+            case 3:
+                console.log(chalk.magenta.inverse(`${key}:`), chalk.magenta(starLength(statsDict[key].number)), chalk.magenta.inverse(`${statsDict[key].percentage}%`));
                 break;
         }
     });

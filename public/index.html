@@ -48,7 +48,7 @@
 		</span>
 	</nav>
 
-	<h1 style="text-align: center" class="m-5">Korištene slike - LDR format</h1>
+	<!-- <h1 style="text-align: center" class="m-5">Korištene slike - LDR format</h1>
 
 	<div id="carousel" class="carousel slide container" data-ride="carousel">
 		<ol class="carousel-indicators" id="carousel-indicators-ldr">
@@ -65,13 +65,13 @@
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
 		</a>
-	</div>
+	</div> -->
 
 	<form method="POST" action="/data">
 		<div class="container" id="hdr-images-container">
 			<h1 class="m-5">Slike</h1>
 			<h2>Ispod se nalazi serija slika i polje za unos korisničkog imena (indeks). Od ispitanika se traži da
-				zaokruži koja slika mu se vizuelno više dopada. Između slika se nalazi vertikalni klizač kako bi
+				odabere koja slika mu se vizuelno više dopada. Između slika se nalazi vertikalni klizač kako bi
 				ispitanik mogao da uporedi efikasno i efektivno detalje na slici. Test nije vremenski ograničen.
 			</h2>
 			<input class="form-control mt-5 mb-5" required type="text"
@@ -94,10 +94,10 @@
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-	</script>
+		</script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-	</script>
+		</script>
 	<script src="/js/hdrpng.min.js"></script>
 	<script>
 		$(document).ready(() => {
@@ -107,38 +107,39 @@
 			jQuery.get({
 				url: '/images',
 				success: (result) => {
-					const ldrImages = result.filter(image => image.split("\.")[1].includes("jpg")); // ldr
-					let ldrIndicatorContainer = $("#carousel-indicators-ldr");
-					let innerCarousel = $("#carousel-inner");
+					// nema smisla bas imati carousel koji ti prikazuje koje slike su LDR
+					// const ldrImages = result.filter(image => image.split("\.")[1].includes("jpg")); // ldr
+					// let ldrIndicatorContainer = $("#carousel-indicators-ldr");
+					// let innerCarousel = $("#carousel-inner");
 
-					ldrImages.forEach((ldrImage, index) => {
-						let listItem = document.createElement("li");
-						$(listItem).attr("data-target", "#carousel");
-						$(listItem).attr("data-slide-to", index);
-						if (index == 0) $(listItem).addClass("active");
-						ldrIndicatorContainer.append(listItem);
+					// ldrImages.forEach((ldrImage, index) => {
+					// 	let listItem = document.createElement("li");
+					// 	$(listItem).attr("data-target", "#carousel");
+					// 	$(listItem).attr("data-slide-to", index);
+					// 	if (index == 0) $(listItem).addClass("active");
+					// 	ldrIndicatorContainer.append(listItem);
 
-						let carouselItem = document.createElement("div");
-						$(carouselItem).addClass("carousel-item");
-						if (index == 0) $(carouselItem).addClass("active");
-						let image = document.createElement("img");
-						$(image).addClass("d-block w-100");
-						$(image).attr("src", ldrImage);
-						$(image).attr("alt", ldrImage);
-						$(carouselItem).append(image);
-						let captionItem = document.createElement("div");
-						$(captionItem).addClass("carousel-caption d-none d-md-block");
-						let h4Item = document.createElement("h4");
-						$(h4Item).html(ldrImage.split("/")[2].split("\.")[0].toUpperCase().split(
-							"_").join(" "));
-						let h5Item = document.createElement("h5");
-						$(h5Item).html(
-							`Format: ${ldrImage.split("/")[2].split("\.")[1].toUpperCase()}`);
-						$(captionItem).append(h4Item);
-						$(captionItem).append(h5Item);
-						$(carouselItem).append(captionItem);
-						innerCarousel.append(carouselItem);
-					});
+					// 	let carouselItem = document.createElement("div");
+					// 	$(carouselItem).addClass("carousel-item");
+					// 	if (index == 0) $(carouselItem).addClass("active");
+					// 	let image = document.createElement("img");
+					// 	$(image).addClass("d-block w-100");
+					// 	$(image).attr("src", ldrImage);
+					// 	$(image).attr("alt", ldrImage);
+					// 	$(carouselItem).append(image);
+					// 	let captionItem = document.createElement("div");
+					// 	$(captionItem).addClass("carousel-caption d-none d-md-block");
+					// 	let h4Item = document.createElement("h4");
+					// 	$(h4Item).html(ldrImage.split("/")[2].split("\.")[0].toUpperCase().split(
+					// 		"_").join(" "));
+					// 	let h5Item = document.createElement("h5");
+					// 	$(h5Item).html(
+					// 		`Format: ${ldrImage.split("/")[2].split("\.")[1].toUpperCase()}`);
+					// 	$(captionItem).append(h4Item);
+					// 	$(captionItem).append(h5Item);
+					// 	$(carouselItem).append(captionItem);
+					// 	innerCarousel.append(carouselItem);
+					// });
 
 					const hdrImages = result.filter(image => image.split("\.")[1].includes("hdr")).slice(
 						0, 9); // ogranici na prva 3 radi testiranja zasad
@@ -150,11 +151,11 @@
 
 						if (index % 3 == 0) {
 							dict[id] = `container-${id}-${id}_CC`;
-							el.innerHTML = `1: ${id} v 2: ${id}_CC v 3: ${id}_TT`;
+							console.log(dict);
+							el.innerHTML = `1: ${id} v 2: ${id}_CC v 3: ${id}_TT v 4: ${id}_LDR`;
 
 							let selectDiv = document.createElement("div");
 							$(selectDiv).css("width", "fit-content");
-
 							$(selectDiv).addClass("input-group mb-3");
 							let prependDiv = document.createElement("div");
 							$(prependDiv).addClass("input-group-prepend");
@@ -165,26 +166,20 @@
 							$(prependDiv).append(prependLabel);
 							$(selectDiv).css("margin-left", `calc(50% - 280px)`);
 							$(selectDiv).append(prependDiv);
+
 							let selectElement = document.createElement("select");
 							$(selectElement).addClass("custom-select h2");
 							$(selectElement).attr("id", `select-${id}`)
 							$(selectElement).css("font-size", "30px");
-							let optionOne = document.createElement("option");
-							$(optionOne).attr("selected", "true");
-							$(optionOne).html(`${id} v ${id}_CC`);
-							$(optionOne).attr("value", `${id}-${id}_CC`);
-							$(optionOne).addClass("h2");
-							$(selectElement).append(optionOne);
-							let optionTwo = document.createElement("option");
-							$(optionTwo).html(`${id} v ${id}_TT`);
-							$(optionTwo).attr("value", `${id}-${id}_TT`);
-							$(optionTwo).addClass("h2");
-							$(selectElement).append(optionTwo);
-							let optionThree = document.createElement("option");
-							$(optionThree).html(`${id}_CC v ${id}_TT`);
-							$(optionThree).attr("value", `${id}_CC-${id}_TT`);
-							$(optionThree).addClass("h2");
-							$(selectElement).append(optionThree);
+
+							createComboboxOption(id, `${id}_CC`, selectElement, false);
+							createComboboxOption(id, `${id}_TT`, selectElement, false);
+							createComboboxOption(`${id}_CC`, `${id}_TT`, selectElement, false);
+
+							createComboboxOption(`${id}_LDR`, `${id}`, selectElement, false);
+							createComboboxOption(`${id}_LDR`, `${id}_CC`, selectElement, false);
+							createComboboxOption(`${id}_LDR`, `${id}_TT`, selectElement, false);
+
 							$(selectDiv).append(selectElement);
 
 							$(hdrContainer).append(el);
@@ -193,71 +188,18 @@
 							// zasad napravljeno da prikazuje par onih par slika iz druge baze, kad dobijem svoje slike promijeniti u skladu
 							// sa nazivima slika
 
-							let firstContainer = document.createElement("div");
-							$(firstContainer).addClass("cocoen m-5");
-							$(firstContainer).attr("id", `container-${id}-${id}_CC`);
-							let outerDiv = document.createElement("div");
-							let firstCanvasDiv = document.createElement("div");
-							$(firstCanvasDiv).attr("id", `first-canvas-${id}`);
-							$(outerDiv).append(firstCanvasDiv);
-							$(firstContainer).append(outerDiv);
-							let myFirstHDR = new HDRImage();
-							myFirstHDR.src = hdrImage;
-							$(firstCanvasDiv).append(myFirstHDR);
-							let mySecondHDR = new HDRImage();
-							mySecondHDR.src = hdrImage.replace(id, `${id}_CC`);
-							// mySecondHDR.id = `second-canvas-${id}`;
-							$(mySecondHDR).addClass("hdr-image");
-							$(firstContainer).append(mySecondHDR);
-							$(hdrContainer).append(firstContainer);
-							new Cocoen($(firstCanvasDiv).attr("id"), $(firstContainer).attr(
-							"id"));
+							createImageSliderElement("first", id, `${id}_CC`, hdrContainer, false);
+							createImageSliderElement("second", id, `${id}_TT`, hdrContainer, true);
+							createImageSliderElement("third", `${id}_CC`, `${id}_TT`, hdrContainer, true);
 
-							let secondContainer = document.createElement("div");
-							$(secondContainer).addClass("cocoen m-5");
-							$(secondContainer).attr("id", `container-${id}-${id}_TT`);
-							let secondOuterDiv = document.createElement("div");
-							let secondCanvasDiv = document.createElement("div");
-							$(secondCanvasDiv).attr("id", `second-canvas-${id}`);
-							$(secondOuterDiv).append(secondCanvasDiv);
-							$(secondContainer).append(secondOuterDiv);
-							let mySecondFirstHDR = new HDRImage();
-							mySecondFirstHDR.src = hdrImage;
-							$(secondCanvasDiv).append(mySecondFirstHDR);
-							let mySecondSecondHDR = new HDRImage();
-							mySecondSecondHDR.src = hdrImage.replace(id, `${id}_TT`);
-							// mySecondSecondHDR.id = `second-canvas-${id}`;
-							$(mySecondSecondHDR).addClass("hdr-image");
-							$(secondContainer).append(mySecondSecondHDR);
-							$(hdrContainer).append(secondContainer);
-							new Cocoen($(secondCanvasDiv).attr("id"), $(secondContainer).attr(
-								"id"));
-							$(secondContainer).hide();
-
-							let thirdContainer = document.createElement("div");
-							$(thirdContainer).addClass("cocoen m-5");
-							$(thirdContainer).attr("id", `container-${id}_CC-${id}_TT`);
-							let thirdOuterDiv = document.createElement("div");
-							let thirdCanvasDiv = document.createElement("div");
-							$(thirdCanvasDiv).attr("id", `third-canvas-${id}`);
-							$(thirdOuterDiv).append(thirdCanvasDiv);
-							$(thirdContainer).append(thirdOuterDiv);
-							let mythirdFirstHDR = new HDRImage();
-							mythirdFirstHDR.src = hdrImage.replace(id, `${id}_CC`);
-							$(thirdCanvasDiv).append(mythirdFirstHDR);
-							let myThirdSecondHDR = new HDRImage();
-							myThirdSecondHDR.src = hdrImage.replace(id, `${id}_TT`);
-							// mySecondSecondHDR.id = `second-canvas-${id}`;
-							$(myThirdSecondHDR).addClass("hdr-image");
-							$(thirdContainer).append(myThirdSecondHDR);
-							$(hdrContainer).append(thirdContainer);
-							new Cocoen($(thirdCanvasDiv).attr("id"), $(thirdContainer).attr(
-							"id"));
-							$(thirdContainer).hide();
+							createImageSliderElement("fourth", `${id}_LDR`, `${id}`, hdrContainer, true);
+							createImageSliderElement("fifth", `${id}_LDR`, `${id}_CC`, hdrContainer, true);
+							createImageSliderElement("sixth", `${id}_LDR`, `${id}_TT`, hdrContainer, true);
 
 							$(hdrContainer).append(getRadioOptions(id));
 							$(hdrContainer).append(getRadioOptions(`${id}_CC`));
 							$(hdrContainer).append(getRadioOptions(`${id}_TT`));
+							$(hdrContainer).append(getRadioOptions(`${id}_LDR`));
 							let hrElement = document.createElement("hr");
 							$(hrElement).css("color", "white");
 							$(hdrContainer).append(hrElement);
@@ -308,6 +250,47 @@
 				$(radioContainer).append(labelElement);
 				return radioContainer;
 			};
+
+			const createComboboxOption = (firstId, secondId, selectElement, selected) => {
+				let option = document.createElement("option");
+				$(option).attr("selected", selected);
+				$(option).html(`${firstId} v ${secondId}`);
+				$(option).attr("value", `${firstId}-${secondId}`);
+				$(option).addClass("h2");
+				$(selectElement).append(option);
+			}
+
+			const createImageSliderElement = (order, firstId, secondId, hdrContainer, hide) => {
+				let container = document.createElement("div");
+				$(container).addClass("cocoen m-5");
+				$(container).attr("id", `container-${firstId}-${secondId}`);
+				let outerDiv = document.createElement("div");
+				let canvasDiv = document.createElement("div");
+				$(canvasDiv).attr("id", `${order}-canvas-${firstId.split("_")[0]}`);
+				$(outerDiv).append(canvasDiv);
+				$(container).append(outerDiv);
+
+				if (firstId.includes('LDR')) {
+					let imgElement = document.createElement("img");
+					$(imgElement).attr("src", `/images/${firstId}.jpg`);
+					$(canvasDiv).append(imgElement);
+				} else {
+					let myFirstHDR = new HDRImage();
+					myFirstHDR.src = `/images/${firstId}.hdr`;
+					$(canvasDiv).append(myFirstHDR);
+				}
+
+				let mySecondHDR = new HDRImage();
+				mySecondHDR.src = `/images/${secondId}.${secondId.includes('LDR') ? 'jpg' : 'hdr'}`;
+				$(mySecondHDR).addClass("hdr-image");
+				$(container).append(mySecondHDR);
+				$(hdrContainer).append(container);
+				new Cocoen($(canvasDiv).attr("id"), $(container).attr(
+					"id"));
+				if (hide) {
+					$(container).hide();
+				}
+			}
 
 		});
 	</script>
