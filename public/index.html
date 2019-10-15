@@ -151,7 +151,6 @@
 
 						if (index % 3 == 0) {
 							dict[id] = `container-${id}-${id}_CC`;
-							console.log(dict);
 							el.innerHTML = `1: ${id} v 2: ${id}_CC v 3: ${id}_TT v 4: ${id}_LDR`;
 
 							let selectDiv = document.createElement("div");
@@ -216,10 +215,11 @@
 					$('select').on('change', ({
 						currentTarget: target
 					}) => {
-						$(`#${dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "")]}`)
+						$(`#${dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "").replace("_LDR", "")]}`)
 							.hide();
-						dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "")] =
+						dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "").replace("_LDR", "")] =
 							`container-${target.value}`;
+						console.log(dict);
 						$(`#container-${target.value}`).show();
 					});
 
