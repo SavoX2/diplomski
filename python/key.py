@@ -16,6 +16,9 @@ L = np.ravel(0.2126 * r + 0.7152 * g + 0.0722 * b) # pretvori u 1D niz
 
 print(img.shape, L.shape)
 
+# In this equation Lmax and Lmin are the maximum and minimum luminance values,
+# respectively, once a percentage of outlier pixels (both on the dark and bright sides) has been
+# eliminated.
 # We calculate two key values, k5 and k1, considering 5 % or 1 % of the pixels as outliers, respectively.
 # Sta sad smatra kao outliere, da li su 5% najsvijetlijih i najtamnijih, tj. 2.5% najsvjetlijih i 2.5% najtamnijih?
 
