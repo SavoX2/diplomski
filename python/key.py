@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import skew
 from scipy.stats import kurtosis
+import imageio
 
 img = imread('./images/URChapel.jpg')
 
@@ -58,32 +59,35 @@ def print_L_stats(L):
     kurtosis_ = kurtosis(L)
     print('Kurtosis =', kurtosis_)
 
-    temp = (L * 254) > 255
-    pov = np.sum(temp > 255)
+    start = time.time()
+    temp = [ 1 for i in (L * 255) if i >= 254 ]
+    print('Kraj {}'.format(time.time() - start))
+    pov = np.sum(temp) / len(L)
     print('pov =', pov)
+
+    gamma = 2.4379 + 0.2319 * logLH - 1.1228 * k + 0.0085 * pov
+    print('Gamma =', gamma)
 
 
 # print('Obicno L')
 # print_L_stats(L)
 # ovo je za slucaj da su outlieri po pola iznad i pola ispod mediana
-print('\n\nL odsjeceno gore i dole za 2.5%')
-print_L_stats([i for i in L_sorted[np.int(len(L_sorted)*(2.5/100))
-              : np.int(len(L_sorted) - len(L_sorted)*(2.5/100))]])
+# print('\n\nL odsjeceno gore i dole za 2.5%')
+# print_L_stats([i for i in L_sorted[np.int(len(L_sorted)*(2.5/100)): np.int(len(L_sorted) - len(L_sorted)*(2.5/100))]])
 print('\n\nL odsjeceno gore i dole za 0.5%')
-print_L_stats([i for i in L_sorted[np.int(len(L_sorted)*(0.5/100))
-              : np.int(len(L_sorted) - len(L_sorted)*(0.5/100))]])
+print_L_stats([i for i in L_sorted[np.int(len(L_sorted)*(0.5/100)): np.int(len(L_sorted) - len(L_sorted)*(0.5/100))]])
 
 # apsolutna razlika medijana i vrijednosti niza
 L_diff_with_median = np.abs(L_sorted - np.median(L_sorted))
 # oni odzada ce biti najvise udaljeni od medijana
 sorted_indices = np.argsort(L_diff_with_median)
 
-print('\n\nL odsjeceno po udaljenosti 5%', -
-      np.int(len(sorted_indices) * 5 / 100))
+# print('\n\nL odsjeceno po udaljenosti 5%', -
+#       np.int(len(sorted_indices) * 5 / 100))
 
 # posljednih 5% niza dobijenog argsort-om su oni najudaljeniji od medijana - outlier-i
-indices_to_delete = sorted_indices[-np.int(len(sorted_indices) * 5 / 100):]
-print_L_stats(np.delete(L_sorted, indices_to_delete))
+# indices_to_delete = sorted_indices[-np.int(len(sorted_indices) * 5 / 100):]
+# print_L_stats(np.delete(L_sorted, indices_to_delete))
 
 print('\n\nL odsjeceno po udaljenosti 1%', -
       np.int(len(sorted_indices) * 1 / 100))
@@ -91,3 +95,5 @@ print('\n\nL odsjeceno po udaljenosti 1%', -
 # posljednih 1% niza dobijenog argsort-om su oni najudaljeniji od medijana - outlier-i
 indices_to_delete = sorted_indices[-np.int(len(sorted_indices) * 1 / 100):]
 print_L_stats(np.delete(L_sorted, indices_to_delete))
+
+# https://www.pyimagesearch.com/2015/10/05/opencv-gamma-correction/
