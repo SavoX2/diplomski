@@ -23,4 +23,6 @@ app.post('/data', (req, res) => {
 
 app.get('/temp', (req, res) => res.sendFile('/temp.html', { root: path.join(__dirname, 'public') }));
 
+app.get('/demo', (req, res) => res.sendFile('/demo.html', { root: path.join(__dirname, 'public') }));
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

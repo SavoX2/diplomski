@@ -48,25 +48,6 @@
 		</span>
 	</nav>
 
-	<!-- <h1 style="text-align: center" class="m-5">Korištene slike - LDR format</h1>
-
-	<div id="carousel" class="carousel slide container" data-ride="carousel">
-		<ol class="carousel-indicators" id="carousel-indicators-ldr">
-
-		</ol>
-		<div class="carousel-inner" id="carousel-inner">
-
-		</div>
-		<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div> -->
-
 	<form method="POST" action="/data">
 		<div class="container" id="hdr-images-container">
 			<h1 class="m-5">Slike</h1>
@@ -107,39 +88,6 @@
 			jQuery.get({
 				url: '/images',
 				success: (result) => {
-					// nema smisla bas imati carousel koji ti prikazuje koje slike su LDR
-					// const ldrImages = result.filter(image => image.split("\.")[1].includes("jpg")); // ldr
-					// let ldrIndicatorContainer = $("#carousel-indicators-ldr");
-					// let innerCarousel = $("#carousel-inner");
-
-					// ldrImages.forEach((ldrImage, index) => {
-					// 	let listItem = document.createElement("li");
-					// 	$(listItem).attr("data-target", "#carousel");
-					// 	$(listItem).attr("data-slide-to", index);
-					// 	if (index == 0) $(listItem).addClass("active");
-					// 	ldrIndicatorContainer.append(listItem);
-
-					// 	let carouselItem = document.createElement("div");
-					// 	$(carouselItem).addClass("carousel-item");
-					// 	if (index == 0) $(carouselItem).addClass("active");
-					// 	let image = document.createElement("img");
-					// 	$(image).addClass("d-block w-100");
-					// 	$(image).attr("src", ldrImage);
-					// 	$(image).attr("alt", ldrImage);
-					// 	$(carouselItem).append(image);
-					// 	let captionItem = document.createElement("div");
-					// 	$(captionItem).addClass("carousel-caption d-none d-md-block");
-					// 	let h4Item = document.createElement("h4");
-					// 	$(h4Item).html(ldrImage.split("/")[2].split("\.")[0].toUpperCase().split(
-					// 		"_").join(" "));
-					// 	let h5Item = document.createElement("h5");
-					// 	$(h5Item).html(
-					// 		`Format: ${ldrImage.split("/")[2].split("\.")[1].toUpperCase()}`);
-					// 	$(captionItem).append(h4Item);
-					// 	$(captionItem).append(h5Item);
-					// 	$(carouselItem).append(captionItem);
-					// 	innerCarousel.append(carouselItem);
-					// });
 
 					const hdrImages = result.filter(image => image.split("\.")[1].includes("hdr")).slice(
 						0, 9); // ogranici na prva 3 radi testiranja zasad
