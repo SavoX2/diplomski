@@ -46,7 +46,7 @@ def remove_outliers(L, percentage):
     L_sorted = np.sort(L)
     L_sorted_median = np.median(L_sorted)
     # apsolutna razlika medijana i vrijednosti niza
-    L_diff_with_median = np.abs(L_sorted - np.median(L_sorted))
+    L_diff_with_median = np.abs(L_sorted - L_sorted_median)
     # oni odzada ce biti najvise udaljeni od medijana
     sorted_indices = np.argsort(L_diff_with_median)
 

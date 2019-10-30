@@ -44,5 +44,5 @@ def adjust_single_image(root, image_name, f):
     imsave("./images/adjusted/" + image_name, adjusted)
 
 
-adjust_all_images("./images/jpg/", "./drugi.log")
+adjust_all_images("./images/testing/", "./peti.log")
 # adjust_single_image("./images/jpg/", "WaffleHouse.jpg")
