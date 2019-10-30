@@ -1,0 +1,540 @@
+507.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/507.jpg --width 2144 --height 1424
+20:47:00 10/30/19 Central European Standard Time
+AhwahneeGreatLounge.jpg: 
+	width:4286 => 2846
+	height:2143 => 1423
+python "temp.py" --params hdrcnn_params.npz --im_dir data/AhwahneeGreatLounge.jpg --width 2143 --height 1423
+20:47:01 10/30/19 Central European Standard Time
+AirBellowsGap.jpg: 
+	width:4286 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/AirBellowsGap.jpg --width 2143 --height 1205
+20:47:01 10/30/19 Central European Standard Time
+AmikeusBeaverDamPM1.jpg: 
+	width:4286 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/AmikeusBeaverDamPM1.jpg --width 2143 --height 1205
+20:47:01 10/30/19 Central European Standard Time
+AmikeusBeaverDamPM2.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/AmikeusBeaverDamPM2.jpg --width 2144 --height 1206
+20:47:02 10/30/19 Central European Standard Time
+ArtistPalette.jpg: 
+	width:4286 => 2848
+	height:2143 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/ArtistPalette.jpg --width 2143 --height 1424
+20:47:02 10/30/19 Central European Standard Time
+BalancedRock.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/BalancedRock.jpg --width 2144 --height 1424
+20:47:02 10/30/19 Central European Standard Time
+BandonSunset(1).jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/BandonSunset(1).jpg --width 2144 --height 1206
+20:47:02 10/30/19 Central European Standard Time
+BandonSunset(2).jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/BandonSunset(2).jpg --width 2144 --height 1206
+20:47:03 10/30/19 Central European Standard Time
+BarHarborPresunrise.jpg: 
+	width:4287 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/BarHarborPresunrise.jpg --width 2143 --height 1205
+20:47:03 10/30/19 Central European Standard Time
+BarHarborSunrise.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/BarHarborSunrise.jpg --width 2144 --height 1206
+20:47:03 10/30/19 Central European Standard Time
+BenJerrys.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/BenJerrys.jpg --width 2144 --height 1206
+20:47:04 10/30/19 Central European Standard Time
+BigfootPass.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/BigfootPass.jpg --width 2144 --height 1206
+20:47:04 10/30/19 Central European Standard Time
+BloomingGorse(1).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/BloomingGorse(1).jpg --width 2144 --height 1424
+20:47:04 10/30/19 Central European Standard Time
+BloomingGorse(2).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/BloomingGorse(2).jpg --width 2144 --height 1424
+20:47:05 10/30/19 Central European Standard Time
+CadesCove.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/CadesCove.jpg --width 2144 --height 1206
+20:47:05 10/30/19 Central European Standard Time
+CanadianFalls.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/CanadianFalls.jpg --width 2144 --height 1206
+20:47:05 10/30/19 Central European Standard Time
+CemeteryTree(1).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/CemeteryTree(1).jpg --width 2144 --height 1424
+20:47:06 10/30/19 Central European Standard Time
+CemeteryTree(2).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/CemeteryTree(2).jpg --width 2144 --height 1424
+20:47:06 10/30/19 Central European Standard Time
+DelicateArch.jpg: 
+	width:4288 => 2680
+	height:2144 => 1340
+python "temp.py" --params hdrcnn_params.npz --im_dir data/DelicateArch.jpg --width 2144 --height 1340
+20:47:06 10/30/19 Central European Standard Time
+DelicateFlowers.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/DelicateFlowers.jpg --width 2144 --height 1424
+20:47:07 10/30/19 Central European Standard Time
+DevilsBathtub.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/DevilsBathtub.jpg --width 2144 --height 1206
+20:47:07 10/30/19 Central European Standard Time
+DevilsGolfCourse.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/DevilsGolfCourse.jpg --width 2144 --height 1206
+20:47:07 10/30/19 Central European Standard Time
+DevilsTower.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/DevilsTower.jpg --width 2144 --height 1424
+20:47:08 10/30/19 Central European Standard Time
+ElCapitan.jpg: 
+	width:2412 => 4288
+	height:1206 => 2144
+python "temp.py" --params hdrcnn_params.npz --im_dir data/ElCapitan.jpg --width 1206 --height 2144
+20:47:08 10/30/19 Central European Standard Time
+Exploratorium(1).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/Exploratorium(1).jpg --width 2144 --height 1424
+20:47:08 10/30/19 Central European Standard Time
+Exploratorium(2).jpg: 
+	width:4286 => 2602
+	height:2143 => 1301
+python "temp.py" --params hdrcnn_params.npz --im_dir data/Exploratorium(2).jpg --width 2143 --height 1301
+20:47:09 10/30/19 Central European Standard Time
+Flamingo.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/Flamingo.jpg --width 2144 --height 1424
+20:47:09 10/30/19 Central European Standard Time
+FourCornersStorm.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/FourCornersStorm.jpg --width 2144 --height 1424
+20:47:09 10/30/19 Central European Standard Time
+Frontier.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/Frontier.jpg --width 2144 --height 1424
+20:47:10 10/30/19 Central European Standard Time
+GeneralGrant.jpg: 
+	width:2848 => 4288
+	height:1424 => 2144
+python "temp.py" --params hdrcnn_params.npz --im_dir data/GeneralGrant.jpg --width 1424 --height 2144
+20:47:10 10/30/19 Central European Standard Time
+GeneralSherman.jpg: 
+	width:2412 => 4288
+	height:1206 => 2144
+python "temp.py" --params hdrcnn_params.npz --im_dir data/GeneralSherman.jpg --width 1206 --height 2144
+20:47:10 10/30/19 Central European Standard Time
+GoldenGate(1).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/GoldenGate(1).jpg --width 2144 --height 1424
+20:47:11 10/30/19 Central European Standard Time
+GoldenGate(2).jpg: 
+	width:4288 => 2847
+	height:2144 => 1423
+python "temp.py" --params hdrcnn_params.npz --im_dir data/GoldenGate(2).jpg --width 2144 --height 1423
+20:47:11 10/30/19 Central European Standard Time
+HalfDomeSunset.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/HalfDomeSunset.jpg --width 2144 --height 1424
+20:47:11 10/30/19 Central European Standard Time
+HallofFame.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/HallofFame.jpg --width 2144 --height 1424
+20:47:12 10/30/19 Central European Standard Time
+HancockKitchenInside.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/HancockKitchenInside.jpg --width 2144 --height 1424
+20:47:12 10/30/19 Central European Standard Time
+HancockKitchenOutside.jpg: 
+	width:4286 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/HancockKitchenOutside.jpg --width 2143 --height 1205
+20:47:12 10/30/19 Central European Standard Time
+HancockSeedField.jpg: 
+	width:4287 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/HancockSeedField.jpg --width 2143 --height 1205
+20:47:13 10/30/19 Central European Standard Time
+HDRMark.jpg: 
+	width:4286 => 2848
+	height:2143 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/HDRMark.jpg --width 2143 --height 1424
+20:47:13 10/30/19 Central European Standard Time
+HooverDam.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/HooverDam.jpg --width 2144 --height 1424
+20:47:13 10/30/19 Central European Standard Time
+HooverGarage.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/HooverGarage.jpg --width 2144 --height 1206
+20:47:14 10/30/19 Central European Standard Time
+JesseBrownsCabin.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/JesseBrownsCabin.jpg --width 2144 --height 1424
+20:47:14 10/30/19 Central European Standard Time
+KingsCanyon.jpg: 
+	width:4286 => 2848
+	height:2143 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/KingsCanyon.jpg --width 2143 --height 1424
+20:47:14 10/30/19 Central European Standard Time
+LabBooth.jpg: 
+	width:3070 => 2039
+	height:1535 => 1019
+python "temp.py" --params hdrcnn_params.npz --im_dir data/LabBooth.jpg --width 1535 --height 1019
+20:47:14 10/30/19 Central European Standard Time
+LabTypewriter.jpg: 
+	width:3071 => 2040
+	height:1535 => 1020
+python "temp.py" --params hdrcnn_params.npz --im_dir data/LabTypewriter.jpg --width 1535 --height 1020
+20:47:15 10/30/19 Central European Standard Time
+LabWindow.jpg: 
+	width:3072 => 2040
+	height:1536 => 1020
+python "temp.py" --params hdrcnn_params.npz --im_dir data/LabWindow.jpg --width 1536 --height 1020
+20:47:15 10/30/19 Central European Standard Time
+LadyBirdRedwoods.jpg: 
+	width:2848 => 4288
+	height:1424 => 2144
+python "temp.py" --params hdrcnn_params.npz --im_dir data/LadyBirdRedwoods.jpg --width 1424 --height 2144
+20:47:15 10/30/19 Central European Standard Time
+LasVegasStore.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/LasVegasStore.jpg --width 2144 --height 1206
+20:47:16 10/30/19 Central European Standard Time
+LetchworthTeaTable(1).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/LetchworthTeaTable(1).jpg --width 2144 --height 1424
+20:47:16 10/30/19 Central European Standard Time
+LetchworthTeaTable(2).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/LetchworthTeaTable(2).jpg --width 2144 --height 1424
+20:47:16 10/30/19 Central European Standard Time
+LittleRiver.jpg: 
+	width:4288 => 2846
+	height:2144 => 1423
+python "temp.py" --params hdrcnn_params.npz --im_dir data/LittleRiver.jpg --width 2144 --height 1423
+20:47:17 10/30/19 Central European Standard Time
+LuxoDoubleChecker.jpg: 
+	width:3115 => 1752
+	height:1557 => 876
+python "temp.py" --params hdrcnn_params.npz --im_dir data/LuxoDoubleChecker.jpg --width 1557 --height 876
+20:47:17 10/30/19 Central European Standard Time
+M3MiddlePond.jpg: 
+	width:4286 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/M3MiddlePond.jpg --width 2143 --height 1205
+20:47:17 10/30/19 Central European Standard Time
+MackinacBridge.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/MackinacBridge.jpg --width 2144 --height 1206
+20:47:17 10/30/19 Central European Standard Time
+MammothHotSprings.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/MammothHotSprings.jpg --width 2144 --height 1206
+20:47:18 10/30/19 Central European Standard Time
+MasonLake(1).jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/MasonLake(1).jpg --width 2144 --height 1206
+20:47:18 10/30/19 Central European Standard Time
+MasonLake(2).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/MasonLake(2).jpg --width 2144 --height 1424
+20:47:18 10/30/19 Central European Standard Time
+McKeesPub.jpg: 
+	width:4286 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/McKeesPub.jpg --width 2143 --height 1205
+20:47:19 10/30/19 Central European Standard Time
+MiddlePond.jpg: 
+	width:4287 => 2847
+	height:2143 => 1423
+python "temp.py" --params hdrcnn_params.npz --im_dir data/MiddlePond.jpg --width 2143 --height 1423
+20:47:19 10/30/19 Central European Standard Time
+MirrorLake.jpg: 
+	width:4284 => 2848
+	height:2142 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/MirrorLake.jpg --width 2142 --height 1424
+20:47:19 10/30/19 Central European Standard Time
+MtRushmore(1).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/MtRushmore(1).jpg --width 2144 --height 1424
+20:47:20 10/30/19 Central European Standard Time
+MtRushmore(2).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/MtRushmore(2).jpg --width 2144 --height 1424
+20:47:20 10/30/19 Central European Standard Time
+MtRushmoreFlags.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/MtRushmoreFlags.jpg --width 2144 --height 1424
+20:47:20 10/30/19 Central European Standard Time
+NiagaraFalls.jpg: 
+	width:4282 => 2409
+	height:2141 => 1204
+python "temp.py" --params hdrcnn_params.npz --im_dir data/NiagaraFalls.jpg --width 2141 --height 1204
+20:47:21 10/30/19 Central European Standard Time
+NorthBubble.jpg: 
+	width:4286 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/NorthBubble.jpg --width 2143 --height 1205
+20:47:21 10/30/19 Central European Standard Time
+OCanadaLights.jpg: 
+	width:2644 => 4156
+	height:1322 => 2078
+python "temp.py" --params hdrcnn_params.npz --im_dir data/OCanadaLights.jpg --width 1322 --height 2078
+20:47:21 10/30/19 Central European Standard Time
+OCanadaNoLights.jpg: 
+	width:2704 => 4015
+	height:1352 => 2007
+python "temp.py" --params hdrcnn_params.npz --im_dir data/OCanadaNoLights.jpg --width 1352 --height 2007
+20:47:22 10/30/19 Central European Standard Time
+OldFaithfulInn.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/OldFaithfulInn.jpg --width 2144 --height 1206
+20:47:22 10/30/19 Central European Standard Time
+OtterPoint.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/OtterPoint.jpg --width 2144 --height 1424
+20:47:22 10/30/19 Central European Standard Time
+PaulBunyan.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/PaulBunyan.jpg --width 2144 --height 1206
+20:47:23 10/30/19 Central European Standard Time
+PeckLake.jpg: 
+	width:4183 => 2353
+	height:2091 => 1176
+python "temp.py" --params hdrcnn_params.npz --im_dir data/PeckLake.jpg --width 2091 --height 1176
+20:47:23 10/30/19 Central European Standard Time
+Peppermill.jpg: 
+	width:4286 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/Peppermill.jpg --width 2143 --height 1205
+20:47:23 10/30/19 Central European Standard Time
+Petroglyphs.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/Petroglyphs.jpg --width 2144 --height 1206
+20:47:23 10/30/19 Central European Standard Time
+RedwoodSunset.jpg: 
+	width:4286 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/RedwoodSunset.jpg --width 2143 --height 1205
+20:47:24 10/30/19 Central European Standard Time
+RITTiger.jpg: 
+	width:4288 => 2680
+	height:2144 => 1340
+python "temp.py" --params hdrcnn_params.npz --im_dir data/RITTiger.jpg --width 2144 --height 1340
+20:47:24 10/30/19 Central European Standard Time
+RoadsEndFireDamage.jpg: 
+	width:2848 => 4288
+	height:1424 => 2144
+python "temp.py" --params hdrcnn_params.npz --im_dir data/RoadsEndFireDamage.jpg --width 1424 --height 2144
+20:47:25 10/30/19 Central European Standard Time
+RoundBarnInside.jpg: 
+	width:2845 => 4275
+	height:1422 => 2137
+python "temp.py" --params hdrcnn_params.npz --im_dir data/RoundBarnInside.jpg --width 1422 --height 2137
+20:47:25 10/30/19 Central European Standard Time
+RoundStoneBarn.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/RoundStoneBarn.jpg --width 2144 --height 1206
+20:47:25 10/30/19 Central European Standard Time
+Route66Museum.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/Route66Museum.jpg --width 2144 --height 1424
+20:47:26 10/30/19 Central European Standard Time
+SequoiaRemains.jpg: 
+	width:2848 => 4288
+	height:1424 => 2144
+python "temp.py" --params hdrcnn_params.npz --im_dir data/SequoiaRemains.jpg --width 1424 --height 2144
+20:47:26 10/30/19 Central European Standard Time
+SmokyTunnel.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/SmokyTunnel.jpg --width 2144 --height 1206
+20:47:26 10/30/19 Central European Standard Time
+SouthBranchKingsRiver.jpg: 
+	width:2846 => 4287
+	height:1423 => 2143
+python "temp.py" --params hdrcnn_params.npz --im_dir data/SouthBranchKingsRiver.jpg --width 1423 --height 2143
+20:47:27 10/30/19 Central European Standard Time
+SpectralLuxoClear.jpg: 
+	width:2912 => 1638
+	height:1456 => 819
+python "temp.py" --params hdrcnn_params.npz --im_dir data/SpectralLuxoClear.jpg --width 1456 --height 819
+20:47:27 10/30/19 Central European Standard Time
+SpectralLuxoENH.jpg: 
+	width:2912 => 1638
+	height:1456 => 819
+python "temp.py" --params hdrcnn_params.npz --im_dir data/SpectralLuxoENH.jpg --width 1456 --height 819
+20:47:27 10/30/19 Central European Standard Time
+SpectralLuxoFLD.jpg: 
+	width:2912 => 1638
+	height:1456 => 819
+python "temp.py" --params hdrcnn_params.npz --im_dir data/SpectralLuxoFLD.jpg --width 1456 --height 819
+20:47:27 10/30/19 Central European Standard Time
+SunsetPoint(1).jpg: 
+	width:4286 => 2774
+	height:2143 => 1387
+python "temp.py" --params hdrcnn_params.npz --im_dir data/SunsetPoint(1).jpg --width 2143 --height 1387
+20:47:28 10/30/19 Central European Standard Time
+SunsetPoint(2).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/SunsetPoint(2).jpg --width 2144 --height 1424
+20:47:28 10/30/19 Central European Standard Time
+TaughannockFalls.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/TaughannockFalls.jpg --width 2144 --height 1206
+20:47:28 10/30/19 Central European Standard Time
+TheGrotto.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/TheGrotto.jpg --width 2144 --height 1424
+20:47:29 10/30/19 Central European Standard Time
+TheNarrows(1).jpg: 
+	width:2848 => 4288
+	height:1424 => 2144
+python "temp.py" --params hdrcnn_params.npz --im_dir data/TheNarrows(1).jpg --width 1424 --height 2144
+20:47:29 10/30/19 Central European Standard Time
+TheNarrows(2).jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/TheNarrows(2).jpg --width 2144 --height 1206
+20:47:30 10/30/19 Central European Standard Time
+TheNarrows(3).jpg: 
+	width:2848 => 4288
+	height:1424 => 2144
+python "temp.py" --params hdrcnn_params.npz --im_dir data/TheNarrows(3).jpg --width 1424 --height 2144
+20:47:30 10/30/19 Central European Standard Time
+TunnelView(1).jpg: 
+	width:4287 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/TunnelView(1).jpg --width 2143 --height 1205
+20:47:30 10/30/19 Central European Standard Time
+TunnelView(2).jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/TunnelView(2).jpg --width 2144 --height 1206
+20:47:31 10/30/19 Central European Standard Time
+TupperLake(1).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/TupperLake(1).jpg --width 2144 --height 1424
+20:47:31 10/30/19 Central European Standard Time
+TupperLake(2).jpg: 
+	width:4287 => 2847
+	height:2143 => 1423
+python "temp.py" --params hdrcnn_params.npz --im_dir data/TupperLake(2).jpg --width 2143 --height 1423
+20:47:31 10/30/19 Central European Standard Time
+UpheavalDome.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/UpheavalDome.jpg --width 2144 --height 1206
+20:47:32 10/30/19 Central European Standard Time
+URChapel(1).jpg: 
+	width:2411 => 4286
+	height:1205 => 2143
+python "temp.py" --params hdrcnn_params.npz --im_dir data/URChapel(1).jpg --width 1205 --height 2143
+20:47:32 10/30/19 Central European Standard Time
+URChapel(2).jpg: 
+	width:2848 => 4288
+	height:1424 => 2144
+python "temp.py" --params hdrcnn_params.npz --im_dir data/URChapel(2).jpg --width 1424 --height 2144
+20:47:32 10/30/19 Central European Standard Time
+WaffleHouse.jpg: 
+	width:4286 => 2411
+	height:2143 => 1205
+python "temp.py" --params hdrcnn_params.npz --im_dir data/WaffleHouse.jpg --width 2143 --height 1205
+20:47:33 10/30/19 Central European Standard Time
+WallDrug.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/WallDrug.jpg --width 2144 --height 1206
+20:47:33 10/30/19 Central European Standard Time
+WestBranchAusable(1).jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/WestBranchAusable(1).jpg --width 2144 --height 1424
+20:47:33 10/30/19 Central European Standard Time
+WestBranchAusable(2).jpg: 
+	width:2846 => 4285
+	height:1423 => 2142
+python "temp.py" --params hdrcnn_params.npz --im_dir data/WestBranchAusable(2).jpg --width 1423 --height 2142
+20:47:34 10/30/19 Central European Standard Time
+WillyDesk.jpg: 
+	width:4288 => 2848
+	height:2144 => 1424
+python "temp.py" --params hdrcnn_params.npz --im_dir data/WillyDesk.jpg --width 2144 --height 1424
+20:47:34 10/30/19 Central European Standard Time
+WillySentinel.jpg: 
+	width:2847 => 4284
+	height:1423 => 2142
+python "temp.py" --params hdrcnn_params.npz --im_dir data/WillySentinel.jpg --width 1423 --height 2142
+20:47:34 10/30/19 Central European Standard Time
+YosemiteFalls.jpg: 
+	width:2848 => 4288
+	height:1424 => 2144
+python "temp.py" --params hdrcnn_params.npz --im_dir data/YosemiteFalls.jpg --width 1424 --height 2144
+20:47:35 10/30/19 Central European Standard Time
+Zentrum.jpg: 
+	width:4288 => 2412
+	height:2144 => 1206
+python "temp.py" --params hdrcnn_params.npz --im_dir data/Zentrum.jpg --width 2144 --height 1206
+20:47:35 10/30/19 Central European Standard Time
