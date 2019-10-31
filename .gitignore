@@ -42,6 +42,9 @@ jpg/
 adjusted/
 __pycache__/
 .vscode/
+out/
+data/
+resized/
 
 # TypeScript v1 declaration files
 typings/
