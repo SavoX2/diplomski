@@ -1,37 +1,11 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Naucna studija: HDR</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/css/cocoen.min.css">
-	<style>
-		body {
-			font-family: sans-serif;
-			font-size: 16px;
-			margin: 2rem;
-			text-align: center;
-			background: rgb(96, 102, 105) !important;
-		}
-
-		.hdr-image {
-			max-width: 2145px !important;
-			max-height: 1450px !important;
-		}
-
-		.container {
-			position: relative;
-			margin: auto;
-			max-width: 2145px !important;
-			/* velicina odabrana zbog velicina slika u dataset-u, promijeniti u skladu sa buduce koristenim datasetom */
-			text-align: center;
-		}
-	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Naučna studija: HDR</title>
 </head>
 
 <body>
@@ -48,200 +22,74 @@
 		</span>
 	</nav>
 
-	<form method="POST" action="/data">
-		<div class="container" id="hdr-images-container">
-			<h1 class="m-5">Slike</h1>
-			<h2>Ispod se nalazi serija slika i polje za unos korisničkog imena (indeks). Od ispitanika se traži da
-				odabere koja slika mu se vizuelno više dopada. Između slika se nalazi vertikalni klizač kako bi
-				ispitanik mogao da uporedi efikasno i efektivno detalje na slici. Test nije vremenski ograničen.
-			</h2>
-			<input class="form-control mt-5 mb-5" required type="text"
-				style="width:400px; margin-left:calc(50% - 200px); font-size: 30px;"
-				placeholder="Korisničko ime: XXXX-YY" name="username">
+	<div class="container m-5" style="border: 1px solid #777777;">
+		<div class="border-primary">
+			<div class="side">
+				<img class="card-img-top" style="max-width: 150px; max-height: 150px" src="/img/etfbl.png"
+					alt="Ime slike">
+			</div>
+			<div class="side">
+				<div class="card-body">
+					<h4 class="card-title">Ime slike</h4>
+					<p class="card-text">
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+								value="option1">
+							<label class="form-check-label" for="inlineRadio1">1</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+								value="option2">
+							<label class="form-check-label" for="inlineRadio2">2</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+								value="option3" disabled>
+							<label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+						</div>
+					</p>
+				</div>
+			</div>
 		</div>
-	</form>
-
-	<br>
-	<br><br><br>
-
+	</div>
 </body>
 
 <footer>
-	<!-- <script src="/js/cocoen.min.js"></script> -->
-	<script src="/js/custom/cocoen.canvas.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-		</script>
+	</script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-		</script>
-	<script src="/js/hdrpng.min.js"></script>
+	</script>
 	<script>
 		$(document).ready(() => {
-
-			let dict = {};
 
 			jQuery.get({
 				url: '/images',
 				success: (result) => {
-
-					const hdrImages = result.filter(image => image.split("\.")[1].includes("hdr")).slice(
-						0, 9); // ogranici na prva 3 radi testiranja zasad
-					console.log(hdrImages);
-					let hdrContainer = $("#hdr-images-container");
-					hdrImages.forEach((hdrImage, index) => {
-						let el = document.createElement("h1");
-						let id = hdrImage.split("\.")[0].split("_")[0].split("/")[2];
-
-						if (index % 3 == 0) {
-							dict[id] = `container-${id}-${id}_CC`;
-							el.innerHTML = `1: ${id} v 2: ${id}_CC v 3: ${id}_TT v 4: ${id}_LDR`;
-
-							let selectDiv = document.createElement("div");
-							$(selectDiv).css("width", "fit-content");
-							$(selectDiv).addClass("input-group mb-3");
-							let prependDiv = document.createElement("div");
-							$(prependDiv).addClass("input-group-prepend");
-							let prependLabel = document.createElement("label");
-							$(prependLabel).addClass("input-group-text");
-							$(prependLabel).attr("for", `select-${id}`);
-							$(prependLabel).html("<h2>Moguće opcije</h2>");
-							$(prependDiv).append(prependLabel);
-							$(selectDiv).css("margin-left", `calc(50% - 280px)`);
-							$(selectDiv).append(prependDiv);
-
-							let selectElement = document.createElement("select");
-							$(selectElement).addClass("custom-select h2");
-							$(selectElement).attr("id", `select-${id}`)
-							$(selectElement).css("font-size", "30px");
-
-							createComboboxOption(id, `${id}_CC`, selectElement, false);
-							createComboboxOption(id, `${id}_TT`, selectElement, false);
-							createComboboxOption(`${id}_CC`, `${id}_TT`, selectElement, false);
-
-							createComboboxOption(`${id}_LDR`, `${id}`, selectElement, false);
-							createComboboxOption(`${id}_LDR`, `${id}_CC`, selectElement, false);
-							createComboboxOption(`${id}_LDR`, `${id}_TT`, selectElement, false);
-
-							$(selectDiv).append(selectElement);
-
-							$(hdrContainer).append(el);
-							$(hdrContainer).append(selectDiv);
-
-							// zasad napravljeno da prikazuje par onih par slika iz druge baze, kad dobijem svoje slike promijeniti u skladu
-							// sa nazivima slika
-
-							createImageSliderElement("first", id, `${id}_CC`, hdrContainer, false);
-							createImageSliderElement("second", id, `${id}_TT`, hdrContainer, true);
-							createImageSliderElement("third", `${id}_CC`, `${id}_TT`, hdrContainer, true);
-
-							createImageSliderElement("fourth", `${id}_LDR`, `${id}`, hdrContainer, true);
-							createImageSliderElement("fifth", `${id}_LDR`, `${id}_CC`, hdrContainer, true);
-							createImageSliderElement("sixth", `${id}_LDR`, `${id}_TT`, hdrContainer, true);
-
-							$(hdrContainer).append(getRadioOptions(id));
-							$(hdrContainer).append(getRadioOptions(`${id}_CC`));
-							$(hdrContainer).append(getRadioOptions(`${id}_TT`));
-							$(hdrContainer).append(getRadioOptions(`${id}_LDR`));
-							let hrElement = document.createElement("hr");
-							$(hrElement).css("color", "white");
-							$(hdrContainer).append(hrElement);
-						}
-
-					});
-
-					let buttonSubmitElement = document.createElement("button");
-					$(buttonSubmitElement).attr("type", "submit");
-					$(buttonSubmitElement).addClass("btn btn-primary");
-					$(buttonSubmitElement).html("<h2>Potvrdi odgovore</h2>");
-					$(hdrContainer).append(buttonSubmitElement);
-
-					$('select').on('change', ({
-						currentTarget: target
-					}) => {
-						$(`#${dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "").replace("_LDR", "")]}`)
-							.hide();
-						dict[target.value.split("-")[1].replace("_CC", "").replace("_TT", "").replace("_LDR", "")] =
-							`container-${target.value}`;
-						console.log(dict);
-						$(`#container-${target.value}`).show();
-					});
+					console.log(result);
+					// sve slike ce se nalaziti u images folderu, a sva slika ce imati sve svoje verzije (LDR, HDR, ALG, CNN) 
+					// u jos jednom zasebnom folderu i zvace se: {slike}_{metod}.{ekstenzija}
 
 				},
 				error: (result) => {
-					console.error(result);
+					console.log(result);
 				}
 			});
 
-			const getRadioOptions = (id) => {
-				let radioContainer = document.createElement("div");
-				$(radioContainer).addClass("form-check form-check-inline ml-5");
-				let inputElement = document.createElement("input");
-				$(inputElement).addClass("form-check-input");
-				$(inputElement).attr("type", "radio");
-				$(inputElement).attr("id", `inline-radio-${id}`);
-				$(inputElement).attr("value", id);
-				$(inputElement).attr("required", "true");
-				$(inputElement).attr("name",
-					`radio-name-${id.split("_")[0]}`
-				); // opet, imena i slicno prilagoditi datim slikama, eventualno dati samo lijevo desno opciju
-				// to bi vjerovatno bilo najbolje, najmanji bias ispitanika
-				$(radioContainer).append(inputElement);
-				let labelElement = document.createElement("h2");
-				$(labelElement).addClass("form-check-label");
-				$(labelElement).attr("for", `inline-radio-${id}`);
-				$(labelElement).html(id);
-				$(radioContainer).append(labelElement);
-				return radioContainer;
-			};
-
-			const createComboboxOption = (firstId, secondId, selectElement, selected) => {
-				let option = document.createElement("option");
-				$(option).attr("selected", selected);
-				$(option).html(`${firstId} v ${secondId}`);
-				$(option).attr("value", `${firstId}-${secondId}`);
-				$(option).addClass("h2");
-				$(selectElement).append(option);
-			}
-
-			const createImageSliderElement = (order, firstId, secondId, hdrContainer, hide) => {
-				let container = document.createElement("div");
-				$(container).addClass("cocoen m-5");
-				$(container).attr("id", `container-${firstId}-${secondId}`);
-				let outerDiv = document.createElement("div");
-				let canvasDiv = document.createElement("div");
-				$(canvasDiv).attr("id", `${order}-canvas-${firstId.split("_")[0]}`);
-				$(outerDiv).append(canvasDiv);
-				$(container).append(outerDiv);
-
-				if (firstId.includes('LDR')) {
-					let imgElement = document.createElement("img");
-					$(imgElement).attr("src", `/images/${firstId}.jpg`);
-					$(canvasDiv).append(imgElement);
-				} else {
-					let myFirstHDR = new HDRImage();
-					myFirstHDR.src = `/images/${firstId}.hdr`;
-					$(canvasDiv).append(myFirstHDR);
-				}
-
-				let mySecondHDR = new HDRImage();
-				mySecondHDR.src = `/images/${secondId}.${secondId.includes('LDR') ? 'jpg' : 'hdr'}`;
-				$(mySecondHDR).addClass("hdr-image");
-				$(container).append(mySecondHDR);
-				$(hdrContainer).append(container);
-				new Cocoen($(canvasDiv).attr("id"), $(container).attr(
-					"id"));
-				if (hide) {
-					$(container).hide();
-				}
-			}
-
 		});
 	</script>
+
+	<style>
+		.side {
+			display: inline-block;
+		}
+	</style>
+
 </footer>
 
 </html>

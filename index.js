@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', (req, res) => res.sendFile('/index.html'));
+
 app.get('/images', utilities.getImages, (req, res) => res.json(req.images));
+
 app.post('/data', (req, res) => {
     fs.writeFileSync(path.join(__dirname, 'public', 'users', `${req.body.username}.json`), JSON.stringify(req.body));
     res.sendFile('/thankyou.html', {

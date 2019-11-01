@@ -1,10 +1,11 @@
 const fs = require('fs');
 const chalk = require('chalk');
+const path = require('path')
 
-const path = './public/images/';
+const imagePath = './public/images/';
 
-module.exports.getImages = (req, res, next) => {
-    fs.readdir(path, (err, items) => {
+getImages = (req, res, next) => {
+    fs.readdir(imagePath, (err, items) => {
         if (err) {
             console.log(chalk.red.inverse('Greska pri citanju direktorijuma sa slikama.'));
             console.log(chalk.red(err));
@@ -20,3 +21,7 @@ module.exports.getImages = (req, res, next) => {
         }
     });
 };
+
+module.exports = {
+    getImages: getImages, 
+}
