@@ -22,36 +22,14 @@
 		</span>
 	</nav>
 
-	<div class="container m-5" style="border: 1px solid #777777;">
-		<div class="border-primary">
-			<div class="side">
-				<img class="card-img-top" style="max-width: 150px; max-height: 150px" src="/img/etfbl.png"
-					alt="Ime slike">
-			</div>
-			<div class="side">
-				<div class="card-body">
-					<h4 class="card-title">Ime slike</h4>
-					<p class="card-text">
-						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-								value="option1">
-							<label class="form-check-label" for="inlineRadio1">1</label>
-						</div>
-						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-								value="option2">
-							<label class="form-check-label" for="inlineRadio2">2</label>
-						</div>
-						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-								value="option3" disabled>
-							<label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
-						</div>
-					</p>
-				</div>
-			</div>
+	<form method="POST" action="/data">
+		<div id="container" class="container mt-5 mb-5 p-5" style="border: 1px solid #777777; border-radius: 0.5%;">
+
+			<input class="form-control mt-5 mb-5" required type="text" placeholder="Korisničko ime: XXXX-YY"
+				name="username">
 		</div>
-	</div>
+	</form>
+
 </body>
 
 <footer>
@@ -61,12 +39,16 @@
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-	</script>
+		</script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-	</script>
+		</script>
 	<script>
 		$(document).ready(() => {
+
+			$(window).on('resize', () => {
+				$('#container').css('margin-left', ($(window).width() - $('#container').width()) / 2 + 'px');
+			});
 
 			jQuery.get({
 				url: '/images',
@@ -75,11 +57,116 @@
 					// sve slike ce se nalaziti u images folderu, a sva slika ce imati sve svoje verzije (LDR, HDR, ALG, CNN) 
 					// u jos jednom zasebnom folderu i zvace se: {slike}_{metod}.{ekstenzija}
 
+					let images = [];
+					let container = $('#container');
+					container.css('margin-left', ($(window).width() - container.width()) / 2 + 'px');
+
+					const ldrExt = 'jpg';
+					const options = ['LDR', 'HDR', 'ALG', 'CNN'];
+
+					result.forEach((part, index) => {
+						// ne znam hoce li jos zasad biti PNG ili JPEG
+
+						const name = result[index].split('/')[2]; // .replace('.jpg', '').replace('.hdr', '').replace('.png', '');
+						images[name] = {
+							LDR: `${name}_1`,
+							HDR: `${name}_2`,
+							ALG: `${name}_3`,
+							CNN: `${name}_4`,
+						};
+
+						let borderDiv = document.createElement('div');
+						$(borderDiv).addClass('border-primary m-2');
+						$(borderDiv).css('border', '1px solid #428bca');
+						$(borderDiv).css('border-radius', '1%');
+
+						let firstSideDiv = document.createElement('div');
+						$(firstSideDiv).addClass('side');
+						$(borderDiv).append(firstSideDiv);
+
+						let img = document.createElement('img');
+						$(img).addClass('img-card-top mb-2 ml-2');
+						$(img).css('max-width', '150px');
+						$(img).css('max-height', '150px');
+						// prikazace se LDR slika (JPEG ili PNG)
+						$(img).attr('src', `${result[index]}/${name}_LDR.${ldrExt}`);
+						$(img).attr('alt', name);
+						$(firstSideDiv).append(img);
+
+						let secondSideDiv = document.createElement('div');
+						$(secondSideDiv).addClass('side');
+						$(borderDiv).append(secondSideDiv);
+
+						let cardBodyDiv = document.createElement('div');
+						$(cardBodyDiv).addClass('card-body');
+						$(secondSideDiv).append(cardBodyDiv);
+
+						let h4 = document.createElement('h4');
+						$(h4).addClass('card-title');
+						$(h4).html(name);
+						$(cardBodyDiv).append(h4);
+
+						let p = document.createElement('p');
+						$(p).addClass('card-text');
+						$(cardBodyDiv).append(p);
+
+						// let used_options = [];
+						// let counter = 1;
+
+						// beskoristan kod buduci da ne mogu dinamicki sam prikazati slike programski
+						// trebao nasumicno prikazivati slike, tkd. ni ispitivac ne zna koja je koja slika
+						// while (used_options.length < 4) {
+						// 	const value = (Math.floor(Math.random() * 10) % 4);
+						// 	if (used_options.includes(options[value])) {
+						// 		continue;
+						// 	} else {
+						// 		createRadioOption(p, name, options[value], counter++);
+						// 		used_options.push(options[value]);
+						// 	}
+						// }
+
+						options.forEach((part, index) => {
+							createRadioOption(p, name, options[index], index + 1);
+						});
+
+						container.append(borderDiv);
+
+					});
+
+					let button = document.createElement("button");
+					$(button).attr("type", "submit");
+					$(button).addClass("btn btn-primary ml-2");
+					$(button).html("Potvrdi odgovore");
+					container.append(button);
+
+					console.log(images);
+
 				},
 				error: (result) => {
 					console.log(result);
 				}
 			});
+
+			createRadioOption = (p, name, version, order) => {
+				let formDiv = document.createElement('div');
+				$(formDiv).addClass('form-check form-check-inline');
+				$(p).append(formDiv);
+
+				let input = document.createElement('input');
+				$(input).addClass('form-check-input');
+				$(input).attr('type', 'radio');
+				$(input).attr('name', `${name}-radio-options`);
+				$(input).attr('id', `${name}_${version}`);
+				$(input).val(version);
+				$(input).attr('required', true);
+				$(formDiv).append(input);
+
+				let label = document.createElement('label');
+				$(label).addClass('form-check-label');
+				$(label).attr('for', `${name}_${version}`);
+				$(label).html(order);
+				$(formDiv).append(label);
+			};
 
 		});
 	</script>

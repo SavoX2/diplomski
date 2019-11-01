@@ -4,7 +4,7 @@ const path = require('path')
 
 const imagePath = './public/images/';
 
-getImages = (req, res, next) => {
+const getImages = (req, res, next) => {
     fs.readdir(imagePath, (err, items) => {
         if (err) {
             console.log(chalk.red.inverse('Greska pri citanju direktorijuma sa slikama.'));
@@ -12,7 +12,7 @@ getImages = (req, res, next) => {
             res.json(err);
         } else {
             // console.log('ovdje', items);
-            images = items; //.filter(item => item.endsWith('jpg'));
+            let images = items; //.filter(item => item.endsWith('jpg'));
             images.forEach((part, index) => {
                 images[index] = '/images/' + images[index];
             });

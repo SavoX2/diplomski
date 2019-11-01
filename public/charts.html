@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grafički prikaz dokumentacije</title>
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="/img/etfbl.png" width="60" height="60" class="d-inline-block align-top" alt="">
+        </a>
+        <p style="font-size: 36px;">Inverzno tonsko mapiranje slika</p>
+        <span class="navbar-text" style="text-align: left">
+            <p class="mb-1">Kandidat: Debeljak Savo</p>
+            <p class="mb-1">Mentor: Vladimir Risojević</p>
+            <p class="mb-1">Član komisije: Vladan Stojnić</p>
+        </span>
+    </nav>
+
+    <div class="m-5 p-5">
+        <canvas id="barChart" ></canvas>
+        <canvas id="stackedChart" ></canvas>
+    </div>
+
+</body>
+
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.1/dist/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+
+    <script>
+
+        $(document).ready(() => {
+
+            jQuery.get({
+                url: '/users',
+                success: (result) => {
+
+                    createChart(false, result, 'barChart');
+                    createChart(true, result, 'stackedChart');
+                    // $('#barChart').css('margin-left', ($(window).width() - $('#barChart').width()) / 2 + 'px');
+                },
+                error: (result) => {
+                    console.log(result);
+                }
+            })
+
+            const createChart = (stacked, result, chartId) => {
+                const keys = Object.keys(result);
+                const distinctImages = [...new Set(keys.map(key => key.replace('_LDR', '').replace('_HDR', '').replace('_CNN', '').replace('_ALG', '')))];
+                console.log(distinctImages);
+                const labels = ['HDR', 'LDR', 'CNN', 'ALG'];
+                let datasets = [];
+                const backgroundColors = [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                ];
+                const borderColors = [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ]
+
+                labels.forEach((part, index) => {
+                    const expr = labels[index];
+
+                    // podaci treba da budu odvojeni po tipu slike: ALG, LDR, HDR, CNN
+                    let tempKeys = keys.map(key => key.endsWith(expr) ? key : undefined).filter(key => key);
+                    console.log(tempKeys);
+                    let data = [];
+                    tempKeys.forEach(tempKey => {
+                        data.push(result[tempKey].percentage);
+                    });
+
+                    datasets.push({
+                        label: labels[index],
+                        data,
+                        backgroundColor: backgroundColors[index],
+                        borderColor: borderColors[index],
+                        borderWidth: 1
+                    });
+                });
+
+                var ctx = document.getElementById(chartId).getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        responsive: true,
+                        legend: {
+                            position: 'top',
+                        },
+                        labels: distinctImages,
+                        datasets
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                },
+                                stacked
+                            }],
+                            xAxes: [{
+                                stacked
+                            }]
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false, 
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Odnos zastupljenosti odabira '
+                        }
+                    }
+                });
+            }
+
+        });
+
+    </script>
+
+</footer>
+
+</html>
