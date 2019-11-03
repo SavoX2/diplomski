@@ -11,7 +11,7 @@
 <body>
 
     <nav class="navbar sticky-top navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="/img/etfbl.png" width="60" height="60" class="d-inline-block align-top" alt="">
         </a>
         <p style="font-size: 36px;">Inverzno tonsko mapiranje slika</p>
@@ -23,8 +23,8 @@
     </nav>
 
     <div class="m-5 p-5">
-        <canvas id="barChart" ></canvas>
-        <canvas id="stackedChart" ></canvas>
+        <canvas id="barChart"></canvas>
+        <canvas id="stackedChart"></canvas>
     </div>
 
 </body>
@@ -53,11 +53,19 @@
                     createChart(false, result, 'barChart');
                     createChart(true, result, 'stackedChart');
                     // $('#barChart').css('margin-left', ($(window).width() - $('#barChart').width()) / 2 + 'px');
+
+                    $('body').append(`<div class="container" style="text-align: center;">
+                                        <div style="display: inline-block;">
+                                            <button type="button" class="btn btn-primary mb-5" style="width: 150px;" onclick="window.location.href='/'">
+                                                <h2>Nazad</h2>
+                                            </button>
+                                        </div>
+                                  </div>`);
                 },
                 error: (result) => {
                     console.log(result);
                 }
-            })
+            });
 
             const createChart = (stacked, result, chartId) => {
                 const keys = Object.keys(result);
@@ -86,7 +94,7 @@
                     console.log(tempKeys);
                     let data = [];
                     tempKeys.forEach(tempKey => {
-                        data.push(result[tempKey].percentage);
+                        data.push(result[tempKey].percentage.toFixed(2));
                     });
 
                     datasets.push({
@@ -122,7 +130,7 @@
                             }]
                         },
                         responsive: true,
-                        maintainAspectRatio: false, 
+                        maintainAspectRatio: false,
                         legend: {
                             position: 'top',
                         },
