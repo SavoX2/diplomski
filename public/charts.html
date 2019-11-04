@@ -123,10 +123,18 @@
                                 ticks: {
                                     beginAtZero: true,
                                 },
-                                stacked
+                                stacked,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Procenat odabira pojedinačnih verzija slika (zbir 100%)'
+                                }
                             }],
                             xAxes: [{
-                                stacked
+                                stacked,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Korištene slike'
+                                }
                             }]
                         },
                         responsive: true,
