@@ -2,181 +2,479 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Naučna studija: HDR</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
 </head>
 
 <body>
+        <nav class="navbar sticky-top navbar-light bg-light">
+                <a class="navbar-brand" href="/">
+                        <img src="/img/etfbl.png" width="60" height="60" class="d-inline-block align-top" alt="">
+                </a>
+                <p style="font-size: 36px;">Inverzno tonsko mapiranje slika</p>
+                <span class="navbar-text" style="text-align: left">
+                        <p class="mb-1">Kandidat: Debeljak Savo</p>
+                        <p class="mb-1">Mentor: Vladimir Risojević</p>
+                        <p class="mb-1">Član komisije: Vladan Stojnić</p>
+                </span>
+        </nav>
 
-	<nav class="navbar sticky-top navbar-light bg-light">
-		<a class="navbar-brand" href="/">
-			<img src="/img/etfbl.png" width="60" height="60" class="d-inline-block align-top" alt="">
-		</a>
-		<p style="font-size: 36px;">Inverzno tonsko mapiranje slika</p>
-		<span class="navbar-text" style="text-align: left">
-			<p class="mb-1">Kandidat: Debeljak Savo</p>
-			<p class="mb-1">Mentor: Vladimir Risojević</p>
-			<p class="mb-1">Član komisije: Vladan Stojnić</p>
-		</span>
-	</nav>
+        <form method="POST" action="/data">
+                <div id="container" class="container mt-5 mb-5 p-5"
+                        style="border: 1px solid rgb(119, 119, 119); border-radius: 0.5%; margin-left: 195.5px;">
 
-	<form method="POST" action="/data">
-		<div id="container" class="container mt-5 mb-5 p-5" style="border: 1px solid #777777; border-radius: 0.5%;">
-
-			<input class="form-control mt-5 mb-5" required type="text" placeholder="Korisničko ime: XXXX-YY"
-				name="username">
-		</div>
-	</form>
-
+                        <input class="form-control mt-5 mb-5" required="" type="text"
+                                placeholder="Korisničko ime: XXXX-YY" name="username">
+                        <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                                <div class="side"><img class="img-card-top mb-2 ml-2"
+                                                src="/images/BarHarborSunrise/BarHarborSunrise_4.jpg"
+                                                alt="BarHarborSunrise" style="max-width: 150px; max-height: 150px;">
+                                </div>
+                                <div class="side">
+                                        <div class="card-body">
+                                                <h4 class="card-title">BarHarborSunrise</h4>
+                                                <p class="card-text">
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="BarHarborSunrise-radio-options"
+                                                                        id="BarHarborSunrise_HDR" value="HDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="BarHarborSunrise_HDR">1</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="BarHarborSunrise-radio-options"
+                                                                        id="BarHarborSunrise_CNN" value="CNN"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="BarHarborSunrise_CNN">2</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="BarHarborSunrise-radio-options"
+                                                                        id="BarHarborSunrise_ALG" value="ALG"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="BarHarborSunrise_ALG">3</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="BarHarborSunrise-radio-options"
+                                                                        id="BarHarborSunrise_LDR" value="LDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="BarHarborSunrise_LDR">4</label></div>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                                <div class="side"><img class="img-card-top mb-2 ml-2"
+                                                src="/images/BloomingGorse(2)/BloomingGorse(2)_2.jpg"
+                                                alt="BloomingGorse(2)" style="max-width: 150px; max-height: 150px;">
+                                </div>
+                                <div class="side">
+                                        <div class="card-body">
+                                                <h4 class="card-title">BloomingGorse(2)</h4>
+                                                <p class="card-text">
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="BloomingGorse(2)-radio-options"
+                                                                        id="BloomingGorse(2)_HDR" value="HDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="BloomingGorse(2)_HDR">1</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="BloomingGorse(2)-radio-options"
+                                                                        id="BloomingGorse(2)_LDR" value="LDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="BloomingGorse(2)_LDR">2</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="BloomingGorse(2)-radio-options"
+                                                                        id="BloomingGorse(2)_ALG" value="ALG"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="BloomingGorse(2)_ALG">3</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="BloomingGorse(2)-radio-options"
+                                                                        id="BloomingGorse(2)_CNN" value="CNN"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="BloomingGorse(2)_CNN">4</label></div>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                                <div class="side"><img class="img-card-top mb-2 ml-2"
+                                                src="/images/CemeteryTree(1)/CemeteryTree(1)_4.jpg"
+                                                alt="CemeteryTree(1)" style="max-width: 150px; max-height: 150px;">
+                                </div>
+                                <div class="side">
+                                        <div class="card-body">
+                                                <h4 class="card-title">CemeteryTree(1)</h4>
+                                                <p class="card-text">
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="CemeteryTree(1)-radio-options"
+                                                                        id="CemeteryTree(1)_CNN" value="CNN"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="CemeteryTree(1)_CNN">1</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="CemeteryTree(1)-radio-options"
+                                                                        id="CemeteryTree(1)_ALG" value="ALG"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="CemeteryTree(1)_ALG">2</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="CemeteryTree(1)-radio-options"
+                                                                        id="CemeteryTree(1)_HDR" value="HDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="CemeteryTree(1)_HDR">3</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="CemeteryTree(1)-radio-options"
+                                                                        id="CemeteryTree(1)_LDR" value="LDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="CemeteryTree(1)_LDR">4</label></div>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                                <div class="side"><img class="img-card-top mb-2 ml-2"
+                                                src="/images/M3MiddlePond/M3MiddlePond_2.jpg" alt="M3MiddlePond"
+                                                style="max-width: 150px; max-height: 150px;"></div>
+                                <div class="side">
+                                        <div class="card-body">
+                                                <h4 class="card-title">M3MiddlePond</h4>
+                                                <p class="card-text">
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="M3MiddlePond-radio-options"
+                                                                        id="M3MiddlePond_CNN" value="CNN"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="M3MiddlePond_CNN">1</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="M3MiddlePond-radio-options"
+                                                                        id="M3MiddlePond_LDR" value="LDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="M3MiddlePond_LDR">2</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="M3MiddlePond-radio-options"
+                                                                        id="M3MiddlePond_HDR" value="HDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="M3MiddlePond_HDR">3</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="M3MiddlePond-radio-options"
+                                                                        id="M3MiddlePond_ALG" value="ALG"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="M3MiddlePond_ALG">4</label>
+                                                        </div>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                                <div class="side"><img class="img-card-top mb-2 ml-2"
+                                                src="/images/McKeesPub/McKeesPub_1.jpg" alt="McKeesPub"
+                                                style="max-width: 150px; max-height: 150px;"></div>
+                                <div class="side">
+                                        <div class="card-body">
+                                                <h4 class="card-title">McKeesPub</h4>
+                                                <p class="card-text">
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="McKeesPub-radio-options"
+                                                                        id="McKeesPub_LDR" value="LDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="McKeesPub_LDR">1</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="McKeesPub-radio-options"
+                                                                        id="McKeesPub_CNN" value="CNN"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="McKeesPub_CNN">2</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="McKeesPub-radio-options"
+                                                                        id="McKeesPub_HDR" value="HDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="McKeesPub_HDR">3</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="McKeesPub-radio-options"
+                                                                        id="McKeesPub_ALG" value="ALG"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="McKeesPub_ALG">4</label>
+                                                        </div>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                                <div class="side"><img class="img-card-top mb-2 ml-2"
+                                                src="/images/OldFaithfulInn/OldFaithfulInn_2.jpg" alt="OldFaithfulInn"
+                                                style="max-width: 150px; max-height: 150px;"></div>
+                                <div class="side">
+                                        <div class="card-body">
+                                                <h4 class="card-title">OldFaithfulInn</h4>
+                                                <p class="card-text">
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="OldFaithfulInn-radio-options"
+                                                                        id="OldFaithfulInn_CNN" value="CNN"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="OldFaithfulInn_CNN">1</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="OldFaithfulInn-radio-options"
+                                                                        id="OldFaithfulInn_LDR" value="LDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="OldFaithfulInn_LDR">2</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="OldFaithfulInn-radio-options"
+                                                                        id="OldFaithfulInn_ALG" value="ALG"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="OldFaithfulInn_ALG">3</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="OldFaithfulInn-radio-options"
+                                                                        id="OldFaithfulInn_HDR" value="HDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="OldFaithfulInn_HDR">4</label></div>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                                <div class="side"><img class="img-card-top mb-2 ml-2"
+                                                src="/images/Route66Museum/Route66Museum_2.jpg" alt="Route66Museum"
+                                                style="max-width: 150px; max-height: 150px;"></div>
+                                <div class="side">
+                                        <div class="card-body">
+                                                <h4 class="card-title">Route66Museum</h4>
+                                                <p class="card-text">
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="Route66Museum-radio-options"
+                                                                        id="Route66Museum_CNN" value="CNN"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="Route66Museum_CNN">1</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="Route66Museum-radio-options"
+                                                                        id="Route66Museum_LDR" value="LDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="Route66Museum_LDR">2</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="Route66Museum-radio-options"
+                                                                        id="Route66Museum_HDR" value="HDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="Route66Museum_HDR">3</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="Route66Museum-radio-options"
+                                                                        id="Route66Museum_ALG" value="ALG"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="Route66Museum_ALG">4</label></div>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                                <div class="side"><img class="img-card-top mb-2 ml-2"
+                                                src="/images/SpectralLuxoClear/SpectralLuxoClear_4.jpg"
+                                                alt="SpectralLuxoClear" style="max-width: 150px; max-height: 150px;">
+                                </div>
+                                <div class="side">
+                                        <div class="card-body">
+                                                <h4 class="card-title">SpectralLuxoClear</h4>
+                                                <p class="card-text">
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="SpectralLuxoClear-radio-options"
+                                                                        id="SpectralLuxoClear_HDR" value="HDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="SpectralLuxoClear_HDR">1</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="SpectralLuxoClear-radio-options"
+                                                                        id="SpectralLuxoClear_ALG" value="ALG"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="SpectralLuxoClear_ALG">2</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="SpectralLuxoClear-radio-options"
+                                                                        id="SpectralLuxoClear_CNN" value="CNN"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="SpectralLuxoClear_CNN">3</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="SpectralLuxoClear-radio-options"
+                                                                        id="SpectralLuxoClear_LDR" value="LDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="SpectralLuxoClear_LDR">4</label></div>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                                <div class="side"><img class="img-card-top mb-2 ml-2"
+                                                src="/images/URChapel(2)/URChapel(2)_1.jpg" alt="URChapel(2)"
+                                                style="max-width: 150px; max-height: 150px;"></div>
+                                <div class="side">
+                                        <div class="card-body">
+                                                <h4 class="card-title">URChapel(2)</h4>
+                                                <p class="card-text">
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="URChapel(2)-radio-options"
+                                                                        id="URChapel(2)_LDR" value="LDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="URChapel(2)_LDR">1</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="URChapel(2)-radio-options"
+                                                                        id="URChapel(2)_HDR" value="HDR"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="URChapel(2)_HDR">2</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="URChapel(2)-radio-options"
+                                                                        id="URChapel(2)_ALG" value="ALG"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="URChapel(2)_ALG">3</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="URChapel(2)-radio-options"
+                                                                        id="URChapel(2)_CNN" value="CNN"
+                                                                        required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="URChapel(2)_CNN">4</label>
+                                                        </div>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                                <div class="side"><img class="img-card-top mb-2 ml-2"
+                                                src="/images/Zentrum/Zentrum_1.jpg" alt="Zentrum"
+                                                style="max-width: 150px; max-height: 150px;"></div>
+                                <div class="side">
+                                        <div class="card-body">
+                                                <h4 class="card-title">Zentrum</h4>
+                                                <p class="card-text">
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="Zentrum-radio-options" id="Zentrum_LDR"
+                                                                        value="LDR" required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="Zentrum_LDR">1</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="Zentrum-radio-options" id="Zentrum_CNN"
+                                                                        value="CNN" required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="Zentrum_CNN">2</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="Zentrum-radio-options" id="Zentrum_ALG"
+                                                                        value="ALG" required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="Zentrum_ALG">3</label></div>
+                                                        <div class="form-check form-check-inline"><input
+                                                                        class="form-check-input" type="radio"
+                                                                        name="Zentrum-radio-options" id="Zentrum_HDR"
+                                                                        value="HDR" required="required"><label
+                                                                        class="form-check-label"
+                                                                        for="Zentrum_HDR">4</label></div>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div><button type="submit" class="btn btn-primary ml-2">Potvrdi odgovore</button>
+                </div>
+        </form>
 </body>
 
 <footer>
-	<script src="https://code.jquery.com/jquery-3.4.1.js"
-		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-		</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-		</script>
-	<script>
-		$(document).ready(() => {
+        <script src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous">
+                </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous">
+                </script>
 
-			$(window).on('resize', () => {
+                <script>
+                
+                $(document).ready(() => {
+                        let container = $('#container');
+                        container.css('margin-left', ($(window).width() - container.width()) / 2 + 'px');
+                        
+                        $(window).on('resize', () => {
 				$('#container').css('margin-left', ($(window).width() - $('#container').width()) / 2 + 'px');
 			});
+                })
+                </script>
 
-			jQuery.get({
-				url: '/images',
-				success: (result) => {
-					console.log(result);
-					// sve slike ce se nalaziti u images folderu, a sva slika ce imati sve svoje verzije (LDR, HDR, ALG, CNN) 
-					// u jos jednom zasebnom folderu i zvace se: {slike}_{metod}.{ekstenzija}
-
-					let images = [];
-					let container = $('#container');
-					container.css('margin-left', ($(window).width() - container.width()) / 2 + 'px');
-
-					const ldrExt = 'jpg';
-					const options = ['LDR', 'HDR', 'ALG', 'CNN'];
-
-					result.forEach((part, index) => {
-						// ne znam hoce li jos zasad biti PNG ili JPEG
-
-						const name = result[index].split('/')[2]; // .replace('.jpg', '').replace('.hdr', '').replace('.png', '');
-						images[name] = {
-							LDR: `${name}_1`,
-							HDR: `${name}_2`,
-							ALG: `${name}_3`,
-							CNN: `${name}_4`,
-						};
-
-						let borderDiv = document.createElement('div');
-						$(borderDiv).addClass('border-primary m-2');
-						$(borderDiv).css('border', '1px solid #428bca');
-						$(borderDiv).css('border-radius', '1%');
-
-						let firstSideDiv = document.createElement('div');
-						$(firstSideDiv).addClass('side');
-						$(borderDiv).append(firstSideDiv);
-
-						let img = document.createElement('img');
-						$(img).addClass('img-card-top mb-2 ml-2');
-						$(img).css('max-width', '150px');
-						$(img).css('max-height', '150px');
-						// prikazace se LDR slika (JPEG ili PNG)
-						$(img).attr('src', `${result[index]}/${name}_LDR.${ldrExt}`);
-						$(img).attr('alt', name);
-						$(firstSideDiv).append(img);
-
-						let secondSideDiv = document.createElement('div');
-						$(secondSideDiv).addClass('side');
-						$(borderDiv).append(secondSideDiv);
-
-						let cardBodyDiv = document.createElement('div');
-						$(cardBodyDiv).addClass('card-body');
-						$(secondSideDiv).append(cardBodyDiv);
-
-						let h4 = document.createElement('h4');
-						$(h4).addClass('card-title');
-						$(h4).html(name);
-						$(cardBodyDiv).append(h4);
-
-						let p = document.createElement('p');
-						$(p).addClass('card-text');
-						$(cardBodyDiv).append(p);
-
-						// let used_options = [];
-						// let counter = 1;
-
-						// beskoristan kod buduci da ne mogu dinamicki sam prikazati slike programski
-						// trebao nasumicno prikazivati slike, tkd. ni ispitivac ne zna koja je koja slika
-						// while (used_options.length < 4) {
-						// 	const value = (Math.floor(Math.random() * 10) % 4);
-						// 	if (used_options.includes(options[value])) {
-						// 		continue;
-						// 	} else {
-						// 		createRadioOption(p, name, options[value], counter++);
-						// 		used_options.push(options[value]);
-						// 	}
-						// }
-
-						options.forEach((part, index) => {
-							createRadioOption(p, name, options[index], index + 1);
-						});
-
-						container.append(borderDiv);
-
-					});
-
-					let button = document.createElement("button");
-					$(button).attr("type", "submit");
-					$(button).addClass("btn btn-primary ml-2");
-					$(button).html("Potvrdi odgovore");
-					container.append(button);
-
-					console.log(images);
-
-				},
-				error: (result) => {
-					console.log(result);
-				}
-			});
-
-			createRadioOption = (p, name, version, order) => {
-				let formDiv = document.createElement('div');
-				$(formDiv).addClass('form-check form-check-inline');
-				$(p).append(formDiv);
-
-				let input = document.createElement('input');
-				$(input).addClass('form-check-input');
-				$(input).attr('type', 'radio');
-				$(input).attr('name', `${name}-radio-options`);
-				$(input).attr('id', `${name}_${version}`);
-				$(input).val(version);
-				$(input).attr('required', true);
-				$(formDiv).append(input);
-
-				let label = document.createElement('label');
-				$(label).addClass('form-check-label');
-				$(label).attr('for', `${name}_${version}`);
-				$(label).html(order);
-				$(formDiv).append(label);
-			};
-
-		});
-	</script>
-
-	<style>
-		.side {
-			display: inline-block;
-		}
-	</style>
-
+        <style>
+                .side {
+                        display: inline-block;
+                }
+        </style>
 </footer>
 
 </html>

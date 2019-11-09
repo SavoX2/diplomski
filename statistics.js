@@ -24,7 +24,7 @@ fs.readdir(path.join(__dirname, 'public', 'users'), (err, files) => {
                 console.log(chalk.green.inverse(`${key}:`), chalk.green(starLength(statsDict[key].number)), chalk.green.inverse(`${statsDict[key].percentage.toFixed(2)}%`));
                 break;
             case 3:
-                console.log(chalk.magenta.inverse(`${key}:`), chalk.magenta(starLength(statsDict[key].number)), chalk.magenta.inverse(`${statsDict[key].percentage.toFixed(2)}%`));
+                console.log(chalk.magenta.inverse(`${key}:`), chalk.magenta(starLength(statsDict[key].number)), chalk.magenta.inverse(`${statsDict[key].percentage.toFixed(2)}%`), '\n');
                 break;
         }
     });
