@@ -20,7 +20,7 @@ app.get('/images', utilities.getImages, (req, res) => res.json(req.images));
 app.get('/users', statisticsUtils.getStatsDictFromApi, (req, res) => res.json(req.statsDict));
 
 app.post('/data', (req, res) => {
-    fs.writeFileSync(path.join(__dirname, 'public', 'users', `${req.body.username}.json`), JSON.stringify(req.body));
+    fs.writeFileSync(path.join(__dirname, 'public', 'users', `${req.body.username}${Date.now()}.json`), JSON.stringify(req.body));
     res.sendFile('/thankyou.html', {
         root: path.join(__dirname, 'public')
     });
