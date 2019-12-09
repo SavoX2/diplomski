@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Naučna studija: HDR</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-light bg-light">
+        <a class="navbar-brand" href="/ranked">
+            <img src="/img/etfbl.png" width="60" height="60" class="d-inline-block align-top" alt="">
+        </a>
+        <p style="font-size: 36px;">Inverzno tonsko mapiranje slika</p>
+        <span class="navbar-text" style="text-align: left">
+            <p class="mb-1">Kandidat: Debeljak Savo</p>
+            <p class="mb-1">Predsjednik komisije: prof. dr Zdenka Babić</p>
+            <p class="mb-1">Mentor: doc. dr Vladimir Risojević</p>
+            <p class="mb-1">Član komisije: dipl. ing. Vladan Stojnić</p>
+        </span>
+    </nav>
+
+    <form method="POST" action="/ranked_data">
+        <div id="container" class="container mt-5 mb-5 p-5"
+            style="border: 1px solid rgb(119, 119, 119); border-radius: 0.5%; margin-left: 195.5px;">
+
+            <input class="form-control mt-5 mb-5" required="" type="text" placeholder="Korisničko ime: XXXX-YY"
+                name="username">
+            <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                <div class="side"><img class="img-card-top mb-2 ml-2"
+                        src="/images/BarHarborSunrise/BarHarborSunrise_4.jpg" alt="BarHarborSunrise"
+                        style="max-width: 150px; max-height: 150px;">
+                </div>
+                <div class="side">
+                    <div class="card-body">
+                        <h4 class="card-title">BarHarborSunrise</h4>
+                        <p class="card-text">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="BarHarborSunrise-1">Prva</label>
+                                    <select name="BarHarborSunrise-ranked-options-1" id="BarHarborSunrise-1"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="BarHarborSunrise-2">Druga</label>
+                                    <select name="BarHarborSunrise-ranked-options-2" id="BarHarborSunrise-2"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="BarHarborSunrise-3">Treća</label>
+                                    <select name="BarHarborSunrise-ranked-options-3" id="BarHarborSunrise-3"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="BarHarborSunrise-4">Četvrta</label>
+                                    <select name="BarHarborSunrise-ranked-options-4" id="BarHarborSunrise-4"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                <div class="side"><img class="img-card-top mb-2 ml-2"
+                        src="/images/BloomingGorse(2)/BloomingGorse(2)_2.jpg" alt="BloomingGorse(2)"
+                        style="max-width: 150px; max-height: 150px;">
+                </div>
+                <div class="side">
+                    <div class="card-body">
+                        <h4 class="card-title">BloomingGorse(2)</h4>
+                        <p class="card-text">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="BloomingGorse(2)-1">Prva</label>
+                                    <select name="BloomingGorse(2)-ranked-options-1" id="BloomingGorse(2)-1"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="CNN">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="BloomingGorse(2)-2">Druga</label>
+                                    <select name="BloomingGorse(2)-ranked-options-2" id="BloomingGorse(2)-2"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="CNN">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="BloomingGorse(2)-3">Treća</label>
+                                    <select name="BloomingGorse(2)-ranked-options-3" id="BloomingGorse(2)-3"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="CNN">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="BloomingGorse(2)-4">Četvrta</label>
+                                    <select name="BloomingGorse(2)-ranked-options-4" id="BloomingGorse(2)-4"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="CNN">4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                <div class="side"><img class="img-card-top mb-2 ml-2"
+                        src="/images/CemeteryTree(1)/CemeteryTree(1)_4.jpg" alt="CemeteryTree(1)"
+                        style="max-width: 150px; max-height: 150px;">
+                </div>
+                <div class="side">
+                    <div class="card-body">
+                        <h4 class="card-title">CemeteryTree(1)</h4>
+                        <p class="card-text">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="CemeteryTree(1)-1">Prva</label>
+                                    <select name="CemeteryTree(1)-ranked-options-1" id="CemeteryTree(1)-1"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="ALG">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="CemeteryTree(1)-2">Druga</label>
+                                    <select name="CemeteryTree(1)-ranked-options-2" id="CemeteryTree(1)-2"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="ALG">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="CemeteryTree(1)-3">Treća</label>
+                                    <select name="CemeteryTree(1)-ranked-options-3" id="CemeteryTree(1)-3"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="ALG">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="CemeteryTree(1)-4">Četvrta</label>
+                                    <select name="CemeteryTree(1)-ranked-options-4" id="CemeteryTree(1)-4"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="ALG">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                <div class="side"><img class="img-card-top mb-2 ml-2" src="/images/M3MiddlePond/M3MiddlePond_2.jpg"
+                        alt="M3MiddlePond" style="max-width: 150px; max-height: 150px;"></div>
+                <div class="side">
+                    <div class="card-body">
+                        <h4 class="card-title">M3MiddlePond</h4>
+                        <p class="card-text">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="M3MiddlePond-1">Prva</label>
+                                    <select name="M3MiddlePond-ranked-options-1" id="M3MiddlePond-1"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="M3MiddlePond-2">Druga</label>
+                                    <select name="M3MiddlePond-ranked-options-2" id="M3MiddlePond-2"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="M3MiddlePond-3">Treća</label>
+                                    <select name="M3MiddlePond-ranked-options-3" id="M3MiddlePond-3"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="M3MiddlePond-4">Četvrta</label>
+                                    <select name="M3MiddlePond-ranked-options-4" id="M3MiddlePond-4"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                <div class="side"><img class="img-card-top mb-2 ml-2" src="/images/McKeesPub/McKeesPub_1.jpg"
+                        alt="McKeesPub" style="max-width: 150px; max-height: 150px;"></div>
+                <div class="side">
+                    <div class="card-body">
+                        <h4 class="card-title">McKeesPub</h4>
+                        <p class="card-text">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="McKeesPub-1">Prva</label>
+                                    <select name="McKeesPub-ranked-options-1" id="McKeesPub-1" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="McKeesPub-2">Druga</label>
+                                    <select name="McKeesPub-ranked-options-2" id="McKeesPub-2" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="McKeesPub-3">Treća</label>
+                                    <select name="McKeesPub-ranked-options-3" id="McKeesPub-3" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="McKeesPub-4">Četvrta</label>
+                                    <select name="McKeesPub-ranked-options-4" id="McKeesPub-4" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                <div class="side"><img class="img-card-top mb-2 ml-2" src="/images/OldFaithfulInn/OldFaithfulInn_2.jpg"
+                        alt="OldFaithfulInn" style="max-width: 150px; max-height: 150px;"></div>
+                <div class="side">
+                    <div class="card-body">
+                        <h4 class="card-title">OldFaithfulInn</h4>
+                        <p class="card-text">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="OldFaithfulInn-1">Prva</label>
+                                    <select name="OldFaithfulInn-ranked-options-1" id="OldFaithfulInn-1"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="HDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="OldFaithfulInn-2">Druga</label>
+                                    <select name="OldFaithfulInn-ranked-options-2" id="OldFaithfulInn-2"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="HDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="OldFaithfulInn-3">Treća</label>
+                                    <select name="OldFaithfulInn-ranked-options-3" id="OldFaithfulInn-3"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="HDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="OldFaithfulInn-4">Četvrta</label>
+                                    <select name="OldFaithfulInn-ranked-options-4" id="OldFaithfulInn-4"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="HDR">4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                <div class="side"><img class="img-card-top mb-2 ml-2" src="/images/Route66Museum/Route66Museum_2.jpg"
+                        alt="Route66Museum" style="max-width: 150px; max-height: 150px;"></div>
+                <div class="side">
+                    <div class="card-body">
+                        <h4 class="card-title">Route66Museum</h4>
+                        <p class="card-text">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="Route66Museum-1">Prva</label>
+                                    <select name="Route66Museum-ranked-options-1" id="Route66Museum-1"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="Route66Museum-2">Druga</label>
+                                    <select name="Route66Museum-ranked-options-2" id="Route66Museum-2"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="Route66Museum-3">Treća</label>
+                                    <select name="Route66Museum-ranked-options-3" id="Route66Museum-3"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="Route66Museum-4">Četvrta</label>
+                                    <select name="Route66Museum-ranked-options-4" id="Route66Museum-4"
+                                        class="form-control">
+                                        <option value="CNN">1</option>
+                                        <option value="LDR">2</option>
+                                        <option value="HDR">3</option>
+                                        <option value="ALG">4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                <div class="side"><img class="img-card-top mb-2 ml-2"
+                        src="/images/SpectralLuxoClear/SpectralLuxoClear_4.jpg" alt="SpectralLuxoClear"
+                        style="max-width: 150px; max-height: 150px;">
+                </div>
+                <div class="side">
+                    <div class="card-body">
+                        <h4 class="card-title">SpectralLuxoClear</h4>
+                        <p class="card-text">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="SpectralLuxoClear-1">Prva</label>
+                                    <select name="SpectralLuxoClear-ranked-options-1" id="SpectralLuxoClear-1"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="ALG">2</option>
+                                        <option value="CNN">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="SpectralLuxoClear-2">Druga</label>
+                                    <select name="SpectralLuxoClear-ranked-options-2" id="SpectralLuxoClear-2"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="ALG">2</option>
+                                        <option value="CNN">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="SpectralLuxoClear-3">Treća</label>
+                                    <select name="SpectralLuxoClear-ranked-options-3" id="SpectralLuxoClear-3"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="ALG">2</option>
+                                        <option value="CNN">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="SpectralLuxoClear-4">Četvrta</label>
+                                    <select name="SpectralLuxoClear-ranked-options-4" id="SpectralLuxoClear-4"
+                                        class="form-control">
+                                        <option value="HDR">1</option>
+                                        <option value="ALG">2</option>
+                                        <option value="CNN">3</option>
+                                        <option value="LDR">4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                <div class="side"><img class="img-card-top mb-2 ml-2" src="/images/URChapel(2)/URChapel(2)_1.jpg"
+                        alt="URChapel(2)" style="max-width: 150px; max-height: 150px;"></div>
+                <div class="side">
+                    <div class="card-body">
+                        <h4 class="card-title">URChapel(2)</h4>
+                        <p class="card-text">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="URChapel(2)-1">Prva</label>
+                                    <select name="URChapel(2)-ranked-options-1" id="URChapel(2)-1" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="HDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="CNN">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="URChapel(2)-2">Druga</label>
+                                    <select name="URChapel(2)-ranked-options-2" id="URChapel(2)-2" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="HDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="CNN">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="URChapel(2)-3">Treća</label>
+                                    <select name="URChapel(2)-ranked-options-3" id="URChapel(2)-3" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="HDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="CNN">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="URChapel(2)-4">Četvrta</label>
+                                    <select name="URChapel(2)-ranked-options-4" id="URChapel(2)-4" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="HDR">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="CNN">4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-primary m-2" style="border: 1px solid rgb(66, 139, 202); border-radius: 1%;">
+                <div class="side"><img class="img-card-top mb-2 ml-2" src="/images/Zentrum/Zentrum_1.jpg" alt="Zentrum"
+                        style="max-width: 150px; max-height: 150px;"></div>
+                <div class="side">
+                    <div class="card-body">
+                        <h4 class="card-title">Zentrum</h4>
+                        <p class="card-text">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="Zentrum-1">Prva</label>
+                                    <select name="Zentrum-ranked-options-1" id="Zentrum-1" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="HDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="Zentrum-2">Druga</label>
+                                    <select name="Zentrum-ranked-options-2" id="Zentrum-2" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="HDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="Zentrum-3">Treća</label>
+                                    <select name="Zentrum-ranked-options-3" id="Zentrum-3" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="HDR">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="Zentrum-4">Četvrta</label>
+                                    <select name="Zentrum-ranked-options-4" id="Zentrum-4" class="form-control">
+                                        <option value="LDR">1</option>
+                                        <option value="CNN">2</option>
+                                        <option value="ALG">3</option>
+                                        <option value="HDR">4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div><button type="submit" class="btn btn-primary ml-2">Potvrdi odgovore</button>
+        </div>
+    </form>
+</body>
+
+<footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+
+    <script>
+
+        $(document).ready(() => {
+            let container = $('#container');
+            container.css('margin-left', ($(window).width() - container.width()) / 2 + 'px');
+
+            $(window).on('resize', () => {
+                $('#container').css('margin-left', ($(window).width() - $('#container').width()) / 2 + 'px');
+            });
+        })
+    </script>
+
+    <style>
+        .side {
+            display: inline-block;
+        }
+    </style>
+</footer>
+
+</html>

@@ -26,7 +26,16 @@ app.post('/data', (req, res) => {
     });
 });
 
-app.get('/temp', (req, res) => res.sendFile('/temp.html', { root: path.join(__dirname, 'public') }));
+app.post('/ranked_data', (req, res) => {
+    fs.writeFileSync(path.join(__dirname, 'public', 'ranked', `${req.body.username}${Date.now()}.json`), JSON.stringify(req.body));
+    res.sendFile('/thankyou_ranked.html', {
+        root: path.join(__dirname, 'public')
+    });
+});
+
+app.get('/charts_ranked', (req, res) => res.sendFile('/charts_ranked.html', { root: path.join(__dirname, 'public') }));
+
+app.get('/ranked', (req, res) => res.sendFile('/ranked.html', { root: path.join(__dirname, 'public') }));
 
 app.get('/demo', (req, res) => res.sendFile('/demo.html', { root: path.join(__dirname, 'public') }));
 
