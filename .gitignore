@@ -38,7 +38,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-images/
+python/images/
 __pycache__/
 .vscode/
 out/
