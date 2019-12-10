@@ -20,13 +20,13 @@ const getStats = () => {
 
         results = null;
 
-        // for some reason iterates 4 times as many
         let j = 0;
         files.forEach(file => {
             const json = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'ranked', file)));
             const keys = Object.keys(json);
             let imageNames = keys.map(key => key.split('-')[0]);
             imageNames = imageNames.filter(val => val != 'username');
+            imageNames = [...new Set(imageNames)];
             // make initial results object
             if (results == null) {
                 results = [];
@@ -65,16 +65,12 @@ const getStats = () => {
                     ++j;
                     let imageVote = results[imageName];
                     let optionVote = json[`${imageName}-ranked-options-${i}`];
-                    console.log(`${imageName}-ranked-options-${i}`);
+                    imageVote[optionVote][mapping[i]];
                     ++imageVote[optionVote][mapping[i]];
                 }
             });
 
-            console.log(results);
-
         });
-
-        console.log(j);
 
     });
 }
