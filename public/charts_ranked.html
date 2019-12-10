@@ -23,6 +23,10 @@
         </span>
     </nav>
 
+    <div class="m-5 p-5" id="stacked-canvas-container">
+        
+    </div>
+
 </body>
 
 <footer>
@@ -33,15 +37,128 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
+    </script>
 
     <script>
+        jQuery.get({
+            url: '/ranked_stats',
+            success: (result) => {
+                const keys = Object.keys(result);
+                const options = ['HDR', 'LDR', 'CNN', 'ALG'];
+                let stackedCanvasContainer = $('#stacked-canvas-container');
+                options.forEach(option => {                    
+                    let canvas = $(document.createElement('canvas'));
+                    canvas.attr('id', `stacked-${option}`);
+                    stackedCanvasContainer.append(canvas);
+                })
+                let hdr = {};
+                keys.forEach(key => {
+                    hdr[key] = result[key].HDR;
+                });
+                createChart(true, hdr, 'stacked-HDR', 'HDR');
+                let ldr = {};
+                keys.forEach(key => {
+                    ldr[key] = result[key].LDR;
+                });
+                createChart(true, ldr, 'stacked-LDR', 'LDR');
+                let cnn = {};
+                keys.forEach(key => {
+                    cnn[key] = result[key].CNN;
+                });
+                createChart(true, cnn, 'stacked-CNN', 'CNN');
+                let alg = {};
+                keys.forEach(key => {
+                    alg[key] = result[key].ALG;
+                });
+                createChart(true, alg, 'stacked-ALG', 'ALG');
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        });
 
-        
+        const createChart = (stacked, result, chartId, title) => {
+            const distinctImages = Object.keys(result);
+            console.log(distinctImages);
+            const labels = ['Prva', 'Druga', 'Treća', 'Četvrta'];
+            const properties = ['first', 'second', 'third', 'fourth'];
+            let datasets = [];
+            const backgroundColors = [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+            ];
+            const borderColors = [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+            ];
 
+            properties.forEach((part, index) => {
+                const expr = properties[index];
+                let data = [];
+
+                distinctImages.forEach(tempKey => {
+                    data.push(result[tempKey][properties[index]]);
+                });
+
+                datasets.push({
+                    label: labels[index],
+                    data,
+                    backgroundColor: backgroundColors[index],
+                    borderColor: borderColors[index],
+                    borderWidth: 1
+                });
+            });
+
+            let ctx = document.getElementById(chartId).getContext('2d');
+            let myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    labels: distinctImages,
+                    datasets
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            },
+                            stacked,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Procenat odabira pojedinačnih verzija slika (zbir 100%)'
+                            }
+                        }],
+                        xAxes: [{
+                            stacked,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Korištene slike'
+                            }
+                        }]
+                    },
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: `Odnos zastupljenosti odabira ${title}`
+                    }
+                }
+            });
+        };
     </script>
 
 </footer>

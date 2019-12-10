@@ -178,8 +178,8 @@ const getStatsDictFromApi = (req, res, next) => {
         let statsDict = getStatsDict(keys, dict);
         req.statsDict = statsDict;
         next();
-
     });
+    
 }
 
 module.exports = {

@@ -1,9 +1,11 @@
 const express = require('express');
 const path = require('path');
-const utilities = require('./public/js/custom/utilities');
-const statisticsUtils = require('./statisticsUtils');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+
+const utilities = require('./public/js/custom/utilities');
+const statisticsUtils = require('./statisticsUtils');
+const rankedStatistics = require('./rankedStatistics');
 
 const app = express();
 const port = 3000;
@@ -18,6 +20,8 @@ app.get('/', (req, res) => res.sendFile('/index.html'));
 app.get('/images', utilities.getImages, (req, res) => res.json(req.images));
 
 app.get('/users', statisticsUtils.getStatsDictFromApi, (req, res) => res.json(req.statsDict));
+
+app.get('/ranked_stats', rankedStatistics.getStatsFromApi, (req, res) => res.json(req.stats));
 
 app.post('/data', (req, res) => {
     fs.writeFileSync(path.join(__dirname, 'public', 'users', `${req.body.username}${Date.now()}.json`), JSON.stringify(req.body));
