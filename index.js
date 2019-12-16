@@ -23,6 +23,8 @@ app.get('/users', statisticsUtils.getStatsDictFromApi, (req, res) => res.json(re
 
 app.get('/ranked_stats', rankedStatistics.getStatsFromApi, (req, res) => res.json(req.stats));
 
+app.get('/ranked_stats_version', rankedStatistics.getImageOptionNumbersSelectedFromApi, (req, res) => res.json(req.stats));
+
 app.post('/data', (req, res) => {
     fs.writeFileSync(path.join(__dirname, 'public', 'users', `${req.body.username}${Date.now()}.json`), JSON.stringify(req.body));
     res.sendFile('/thankyou.html', {

@@ -43,6 +43,7 @@
         </script>
 
     <script>
+
         jQuery.get({
             url: '/ranked_stats',
             success: (result) => {
@@ -53,7 +54,7 @@
                     let canvas = $(document.createElement('canvas'));
                     canvas.attr('id', `stacked-${option}`);
                     stackedCanvasContainer.append(canvas);
-                })
+                });
                 let hdr = {};
                 keys.forEach(key => {
                     hdr[key] = result[key].HDR;
@@ -80,9 +81,23 @@
             }
         });
 
+        jQuery.get({
+            url: '/ranked_stats_version',
+            success(result) {
+                const keys = Object.keys(result);
+                let stackedCanvasContainer = $('#stacked-canvas-container');
+                let canvas = $(document.createElement('canvas'));
+                canvas.attr('id', `stacked-image-numbers`);
+                stackedCanvasContainer.append(canvas);
+                createChart(true, result, 'stacked-image-numbers', 'slike po mjestu');
+            },
+            error(err) {
+                console.log(err);
+            }
+        })
+
         const createChart = (stacked, result, chartId, title) => {
             const distinctImages = Object.keys(result);
-            console.log(distinctImages);
             const labels = ['Prva', 'Druga', 'Treća', 'Četvrta'];
             const properties = ['first', 'second', 'third', 'fourth'];
             let datasets = [];
@@ -132,6 +147,9 @@
                         yAxes: [{
                             ticks: {
                                 beginAtZero: true,
+                                steps: 10,
+                                stepValue: 5,
+                                max: 100
                             },
                             stacked,
                             scaleLabel: {
@@ -159,6 +177,7 @@
                 }
             });
         };
+
     </script>
 
 </footer>

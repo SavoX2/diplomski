@@ -159,7 +159,20 @@ const getImageOptionNumbersSelectedFromApi = (req, res, next) => {
             console.log(chalk.red(err));
             return res.json(err);
         }
-        req.stats = getImageOptionNumbersSelectedFromApi(files);
+        stats = getImageOptionNumbersSelected(files);
+        const imageOptions = Object.keys(stats);
+        imageOptions.forEach(imageOption => {
+            const keys = Object.keys(stats[imageOption]);
+            let total = 0;
+            keys.forEach(key => {
+                total += stats[imageOption][key];
+            });
+            keys.forEach(key => {
+                stats[imageOption][key] = stats[imageOption][key] / total * 100;
+            });
+        })
+        req.stats = stats;
+        console.log(req.stats);
         next();
     });
 
