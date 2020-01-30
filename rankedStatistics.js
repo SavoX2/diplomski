@@ -57,7 +57,6 @@ const getStats = (files) => {
             for (let i = 1; i <= 4; ++i) {
                 let imageVote = results[imageName];
                 let optionVote = json[`${imageName}-ranked-options-${i}`];
-                imageVote[optionVote][mapping[i]];
                 ++imageVote[optionVote][mapping[i]];
             }
         });

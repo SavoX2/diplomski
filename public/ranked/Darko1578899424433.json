@@ -1,9 +1,9 @@
 {
-    "username": "Vid Malesevic",
+    "username": "Darko",
     "BarHarborSunrise-ranked-options-1": "HDR",
     "BarHarborSunrise-ranked-options-2": "ALG",
-    "BarHarborSunrise-ranked-options-3": "CNN",
-    "BarHarborSunrise-ranked-options-4": "LDR",
+    "BarHarborSunrise-ranked-options-3": "LDR",
+    "BarHarborSunrise-ranked-options-4": "CNN",
     "BloomingGorse(2)-ranked-options-1": "HDR",
     "BloomingGorse(2)-ranked-options-2": "ALG",
     "BloomingGorse(2)-ranked-options-3": "CNN",
@@ -13,8 +13,8 @@
     "CemeteryTree(1)-ranked-options-3": "LDR",
     "CemeteryTree(1)-ranked-options-4": "CNN",
     "M3MiddlePond-ranked-options-1": "HDR",
-    "M3MiddlePond-ranked-options-2": "LDR",
-    "M3MiddlePond-ranked-options-3": "ALG",
+    "M3MiddlePond-ranked-options-2": "ALG",
+    "M3MiddlePond-ranked-options-3": "LDR",
     "M3MiddlePond-ranked-options-4": "CNN",
     "McKeesPub-ranked-options-1": "LDR",
     "McKeesPub-ranked-options-2": "HDR",
@@ -38,6 +38,6 @@
     "URChapel(2)-ranked-options-4": "CNN",
     "Zentrum-ranked-options-1": "LDR",
     "Zentrum-ranked-options-2": "ALG",
-    "Zentrum-ranked-options-3": "HDR",
-    "Zentrum-ranked-options-4": "CNN"
+    "Zentrum-ranked-options-3": "CNN",
+    "Zentrum-ranked-options-4": "HDR"
 }
